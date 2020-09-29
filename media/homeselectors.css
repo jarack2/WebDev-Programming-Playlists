@@ -8,6 +8,7 @@ img {
 
 .row { 
   margin: 0 12px; 
+  margin-bottom: 24px;
   overflow: visible;
 }
 
