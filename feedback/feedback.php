@@ -1,8 +1,9 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="../feedback/feedback.css">
+  <link rel="stylesheet" type="text/css" href="../styles.css">
+  <link rel="stylesheet" type="text/css" href="feedback.css">
+  <title id="home">Programming Playlists</title>
 </head>
 
 <body>
@@ -16,7 +17,7 @@
       </form>
     </div>
   </div>
-  <?php require_once "../footer/footer.php"; ?>
 </body>
+<?php require_once "../structure/footer.php"; ?>
 
 </html>

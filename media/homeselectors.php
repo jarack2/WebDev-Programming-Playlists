@@ -1,7 +1,4 @@
-<link rel="stylesheet" href="media/homeselectors.css">
-
 <?php
-
 function get_topics($filepath)
 {
   $arr = array();
@@ -18,23 +15,23 @@ function get_topics($filepath)
 
 <?php function cardrow($arr, $name)
 { ?>
-<div class="row">
-  <h3 class="topic"><?= $name ?></h3>
-  <?php foreach ($arr as $arr_name => $arr_path) : ?>
-  <div class="column">
-    <div class="card">
-      <img src="<?php echo $arr_path; ?>" alt="<?= $arr_name ?>">
-      <p class="topic-name"><?= basename($arr_name, ".png") ?></p>
-    </div>
+  <div class="row">
+    <h3 class="topic"><?= $name ?></h3>
+    <?php foreach ($arr as $arr_name => $arr_path) : ?>
+      <div class="column">
+        <div class="card">
+          <img src="<?php echo $arr_path; ?>" alt="<?= $arr_name ?>">
+          <p class="topic-name"><?= basename($arr_name, ".png") ?></p>
+        </div>
+      </div>
+    <?php endforeach ?>
   </div>
-  <?php endforeach ?>
-</div>
 <?php } ?>
 <?php
 
-$languages = get_topics("./assets/languages/");
-$algorithms = get_topics("./assets/algorithms/");
-$concepts = get_topics("./assets/concepts/");
+$languages = get_topics("assets/languages/");
+$algorithms = get_topics("assets/algorithms/");
+$concepts = get_topics("assets/concepts/");
 
 
 cardrow($languages, "Languages");

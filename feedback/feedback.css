@@ -1,6 +1,4 @@
-h3 {
-  text-align: center;
-}
+@import "../styles.css";
 
 textarea {
   align-items: center;
@@ -12,6 +10,7 @@ textarea {
 }
 .feedback-title {
   margin-bottom: 24px;
+  text-align: center;
 }
 
 input[type="submit"] {

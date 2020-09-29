@@ -3,6 +3,7 @@
 <head>
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="playlists/playlists.css">
+  <title>Programming Playlists</title>
 </head>
 
 <body>
@@ -14,7 +15,7 @@
         allowfullscreen></iframe>
     </div>
   </div>
-  <?php require_once "../footer/footer.php"; ?>
 </body>
+<?php require_once "../structure/footer.php"; ?>
 
 </html>

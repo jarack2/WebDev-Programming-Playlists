@@ -1,8 +1,9 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="../login/login.css">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" type="text/css" href="../login/login.css">
+  <link rel="stylesheet" type="text/css" href="../styles.css">
+  <title id="home">Login | Programming Playlists</title>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
       </form>
     </div>
   </div>
-  <?php require_once "../footer/footer.php"; ?>
 </body>
+<?php require_once "../structure/footer.php"; ?>
 
 </html>
