@@ -32,7 +32,6 @@ function get_topics($filepath)
   <?php endforeach ?>
 </div>
 <?php } ?>
-
 <?php
 
 $languages = get_topics("./assets/languages/");
