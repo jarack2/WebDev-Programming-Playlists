@@ -1,14 +1,18 @@
 img {
   max-width: 300px;
-  max-height: 600px;
+  max-height: 800px;
 }
 
-.row { margin: 0 -5px; }
+.row { 
+  margin: 0 12px; 
+  overflow: visible;
+}
 
 .column {
   float: left;
   width: 25%;
-  padding: 0 10px;
+  padding: 0 12px;
+  overflow: visible;
 }
 
 .row:after {
@@ -18,11 +22,13 @@ img {
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.289); /* this adds the "card" effect */
+  box-shadow: 0 4px 4px 0 rgba(255, 255, 255, 0.2); /* this adds the "card" effect */
   padding: 48px;
   text-align: center;
-  background-color: #322f3d;
+  background-color: #1f1a42bf;
   margin-top: 12px;
+  border-radius: 12px;
+
 }
 
 @media screen and (max-width: 600px) {
@@ -34,7 +40,6 @@ img {
 }
 
 .topic {
-  /* text-align: center; */
   margin-left: 12px;
   margin-top: 12px;
 }

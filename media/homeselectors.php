@@ -10,19 +10,19 @@ $concepts = array();
 $dir = new DirectoryIterator(dirname("./assets/languages/*"));
 foreach ($dir as $s_lang) {
   if ($s_lang->getFilename() != '.' && $s_lang->getFilename() != '..')
-    $languages[$s_lang->getFilename()] = $s_lang->getRealPath();
+    $languages[$s_lang->getFilename()] =  "assets/" . $s_lang->getFilename();
 }
 
 $dir2 = new DirectoryIterator(dirname("./assets/algorithms/*"));
 foreach ($dir2 as $s_algo) {
   if ($s_algo->getFilename() != '.' && $s_algo->getFilename() != '..')
-    $algorithms[$s_algo->getFilename()] = realpath($s_algo);
+    $algorithms[$s_algo->getFilename()] = "assets/" . $s_algo->getFilename();
 }
 
 $dir3 = new DirectoryIterator(dirname("./assets/concepts/*"));
 foreach ($dir3 as $s_conc) {
   if ($s_conc->getFilename() != '.' && $s_conc->getFilename() != '..')
-    $concepts[$s_conc->getFilename()] = realpath($s_conc);
+    $concepts[$s_conc->getFilename()] = "assets/" . $s_conc->getFilename();
 }
 
 ?>
@@ -52,7 +52,7 @@ foreach ($dir3 as $s_conc) {
 
 <div class="row">
   <h3 class="topic">Concepts</h3>
-  <?php foreach ($concepts as $conc_name => $conc_path) : print_r($conc_path); ?> <div class="column">
+  <?php foreach ($concepts as $conc_name => $conc_path) : ?> <div class="column">
     <div class="card">
       <img src="<?php echo $conc_path; ?>" alt="<?= $conc_name ?>">
       <p><?php$conc_name?></p>
@@ -60,4 +60,3 @@ foreach ($dir3 as $s_conc) {
   </div>
   <?php endforeach ?>
 </div>
-<img src="C:/Users/Jared/School/WebDev/fp/assets/languages/c#.png" alt="">
