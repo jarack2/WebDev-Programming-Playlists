@@ -1,6 +1,4 @@
-<head>
-  <link rel="stylesheet" href="media/homeselectors.css">
-</head>
+<link rel="stylesheet" href="media/homeselectors.css">
 
 <?php
 
@@ -26,7 +24,7 @@ function get_topics($filepath)
   <div class="column">
     <div class="card">
       <img src="<?php echo $arr_path; ?>" alt="<?= $arr_name ?>">
-      <p><?php$lang_name?></p>
+      <p><?= basename($arr_name, ".png") ?></p>
     </div>
   </div>
   <?php endforeach ?>

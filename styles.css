@@ -11,3 +11,7 @@ body {
 * {
   overflow: hidden;
 }
+
+iframe.videos {
+  margin-left: 24px;
+}
