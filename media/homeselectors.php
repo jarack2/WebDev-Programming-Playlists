@@ -1,64 +1,46 @@
 <head>
   <link rel="stylesheet" href="media/homeselectors.css">
 </head>
+
 <?php
 
-$languages = array();
-$algorithms = array();
-$concepts = array();
+function get_topics($filepath)
+{
+  $arr = array();
 
-$dir = new DirectoryIterator(dirname("./assets/languages/*"));
-foreach ($dir as $s_lang) {
-  if ($s_lang->getFilename() != '.' && $s_lang->getFilename() != '..')
-    $languages[$s_lang->getFilename()] =  "assets/languages/" . $s_lang->getFilename();
-}
-
-$dir2 = new DirectoryIterator(dirname("./assets/algorithms/*"));
-foreach ($dir2 as $s_algo) {
-  if ($s_algo->getFilename() != '.' && $s_algo->getFilename() != '..')
-    $algorithms[$s_algo->getFilename()] = "assets/algorithms/" . $s_algo->getFilename();
-}
-
-$dir3 = new DirectoryIterator(dirname("./assets/concepts/*"));
-foreach ($dir3 as $s_conc) {
-  if ($s_conc->getFilename() != '.' && $s_conc->getFilename() != '..')
-    $concepts[$s_conc->getFilename()] = "assets/concepts/" . $s_conc->getFilename();
+  $dir = new DirectoryIterator(dirname($filepath . "*"));
+  foreach ($dir as $s_topic) {
+    if ($s_topic->getFilename() != '.' && $s_topic->getFilename() != '..')
+      $arr[$s_topic->getFilename()] =  "$filepath" . $s_topic->getFilename();
+  }
+  return $arr;
 }
 
 ?>
 
+<?php function cardrow($arr, $name)
+{ ?>
 <div class="row">
-  <h3 class="topic">Languages</h3>
-  <?php foreach ($languages as $lang_name => $lang_path) : ?>
+  <h3 class="topic"><?= $name ?></h3>
+  <?php foreach ($arr as $arr_name => $arr_path) : ?>
   <div class="column">
     <div class="card">
-      <img src="<?php echo $lang_path; ?>" alt="<?= $lang_name ?>">
+      <img src="<?php echo $arr_path; ?>" alt="<?= $arr_name ?>">
       <p><?php$lang_name?></p>
     </div>
   </div>
   <?php endforeach ?>
 </div>
+<?php } ?>
 
-<div class="row">
-  <h3 class="topic">Algorithms</h3>
-  <?php foreach ($algorithms as $algo_name => $algo_path) : ?>
-  <div class="column">
-    <div class="card">
-      <img src="<?php echo $algo_path; ?>" alt="<?= $algo_name ?>">
-      <p><?php$algo_name?></p>
-    </div>
-  </div>
-  <?php endforeach ?>
-</div>
+<?php
 
-<div class="row">
-  <h3 class="topic">Concepts</h3>
-  <?php foreach ($concepts as $conc_name => $conc_path) : ?>
-  <div class="column">
-    <div class="card">
-      <img src="<?php echo $conc_path; ?>" alt="<?= $conc_name ?>">
-      <p><?php$conc_name?></p>
-    </div>
-  </div>
-  <?php endforeach ?>
-</div>
+$languages = get_topics("./assets/languages/");
+$algorithms = get_topics("./assets/algorithms/");
+$concepts = get_topics("./assets/concepts/");
+
+
+cardrow($languages, "Languages");
+cardrow($algorithms, "Algorithms");
+cardrow($concepts, "Concepts");
+?>
