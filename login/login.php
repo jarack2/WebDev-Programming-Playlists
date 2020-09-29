@@ -9,17 +9,15 @@
   <?php require_once "../structure/structure.php"; ?>
   <div class="main">
     <div class="content">
-
-      <div class="credentials">
+      <form action="/index.php" method="get" class="credentials">
         <div class="username">
-          <input class="input" type="text" placeholder="Admin Username">
+          <input class="input" type="text" name="username" id="name" placeholder="Admin Username">
         </div>
         <div class="password">
           <input class="input" type="password" placeholder="Admin Password">
         </div>
-
-      </div>
-      <input type="submit" />
+        <input type="submit" value="Submit" />
+      </form>
     </div>
   </div>
   <?php require_once "../footer/footer.php"; ?>
