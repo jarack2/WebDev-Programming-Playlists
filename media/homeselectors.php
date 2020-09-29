@@ -10,13 +10,13 @@ $concepts = array();
 $dir = new DirectoryIterator(dirname("./assets/languages/*"));
 foreach ($dir as $s_lang) {
   if ($s_lang->getFilename() != '.' && $s_lang->getFilename() != '..')
-    $languages[$s_lang->getFilename()] =  "assets/" . $s_lang->getFilename();
+    $languages[$s_lang->getFilename()] =  "assets/languages/" . $s_lang->getFilename();
 }
 
 $dir2 = new DirectoryIterator(dirname("./assets/algorithms/*"));
 foreach ($dir2 as $s_algo) {
   if ($s_algo->getFilename() != '.' && $s_algo->getFilename() != '..')
-    $algorithms[$s_algo->getFilename()] = "assets/" . $s_algo->getFilename();
+    $algorithms[$s_algo->getFilename()] = "assets/concepts/" . $s_algo->getFilename();
 }
 
 $dir3 = new DirectoryIterator(dirname("./assets/concepts/*"));
