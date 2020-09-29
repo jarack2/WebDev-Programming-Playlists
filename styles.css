@@ -1,3 +1,7 @@
+/* @import "../structure/structure.css";
+@import "../footer/footer.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css"; */
+
 ::-webkit-scrollbar {
   width: 20px;
   background: #343434;
@@ -36,4 +40,20 @@ body {
 
 iframe.videos {
   margin-left: 24px;
+}
+
+footer {
+  border-top: 1px solid #cccccc;
+  padding-top: 4px;
+  font-size: 20px;
+  margin-top: 20px;
+  position: fixed;
+  bottom: 0px;
+  margin-left: 200px;
+  width: 100%;
+  background-color: 152a38;
+}
+.footer-text {
+  text-align: center;
+  margin-right: 200px;
 }
