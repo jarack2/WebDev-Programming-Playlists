@@ -24,7 +24,7 @@ function get_topics($filepath)
   <div class="column">
     <div class="card">
       <img src="<?php echo $arr_path; ?>" alt="<?= $arr_name ?>">
-      <p><?= basename($arr_name, ".png") ?></p>
+      <p class="topic-name"><?= basename($arr_name, ".png") ?></p>
     </div>
   </div>
   <?php endforeach ?>

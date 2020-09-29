@@ -7,7 +7,7 @@
   list-style: none;
   text-decoration: none;
   font-family: 'Josefin Slab', sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 h1, h4 {
@@ -72,4 +72,18 @@ li a:active {
   margin-top: 0;
   margin-bottom: 12px;
   margin-left: 8px;
+}
+
+@media screen and (max-width: 815px) {
+  .title {
+    margin-left: 300px;
+    margin-right: 100px;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .title {
+    margin-left: 225px;
+    margin-right: 25px;
+  }
 }
