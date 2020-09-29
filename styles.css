@@ -1,3 +1,16 @@
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar :hover {
+  width: 24px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #055e68;
+  border-radius: 16px;
+}
+
 body {
   background-color: #1b262c;
   color: white;
@@ -6,11 +19,12 @@ body {
 
 .main {
   margin-left: 200px;
+  margin-bottom: 24px;
 }
 
-* {
+/* * {
   overflow: hidden;
-}
+} */
 
 iframe.videos {
   margin-left: 24px;
