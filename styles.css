@@ -1,14 +1,22 @@
 ::-webkit-scrollbar {
-  width: 16px;
+  width: 20px;
+  background: #343434;
+  /* visibility: hidden; */
 }
 
-::-webkit-scrollbar :hover {
+/* ::-webkit-scrollbar:hover {
+  visibility: visible;
+} */
+
+::-webkit-scrollbar-thumb:hover {
   width: 24px;
+  /* visibility: visible; */
 }
 
 ::-webkit-scrollbar-thumb {
+  /* visibility: hidden; */
   background-color: #055e68;
-  border-radius: 16px;
+  border-radius: 48px;
 }
 
 body {
