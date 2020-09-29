@@ -1,0 +1,40 @@
+img {
+  max-width: 300px;
+  max-height: 600px;
+}
+
+.row { margin: 0 -5px; }
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.289); /* this adds the "card" effect */
+  padding: 48px;
+  text-align: center;
+  background-color: #322f3d;
+  margin-top: 12px;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+.topic {
+  /* text-align: center; */
+  margin-left: 12px;
+  margin-top: 12px;
+}

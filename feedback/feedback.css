@@ -1,0 +1,20 @@
+h3 {
+  text-align: center;
+}
+
+textarea {
+  align-items: center;
+  display: block;
+  margin: 0 auto;
+  padding: 10px 0;
+  font-size: 24px;
+
+}
+.feedback-title {
+  margin-bottom: 24px;
+}
+
+input[type="submit"] {
+  margin: 32px auto 32px 45%;
+  padding: 12px;
+}

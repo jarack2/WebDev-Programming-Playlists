@@ -1,0 +1,13 @@
+body {
+  background-color: #1b262c;
+  color: white;
+
+}
+
+.main {
+  margin-left: 200px;
+}
+
+* {
+  overflow: hidden;
+}
