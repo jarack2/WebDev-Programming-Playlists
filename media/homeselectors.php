@@ -16,13 +16,13 @@ foreach ($dir as $s_lang) {
 $dir2 = new DirectoryIterator(dirname("./assets/algorithms/*"));
 foreach ($dir2 as $s_algo) {
   if ($s_algo->getFilename() != '.' && $s_algo->getFilename() != '..')
-    $algorithms[$s_algo->getFilename()] = "assets/concepts/" . $s_algo->getFilename();
+    $algorithms[$s_algo->getFilename()] = "assets/algorithms/" . $s_algo->getFilename();
 }
 
 $dir3 = new DirectoryIterator(dirname("./assets/concepts/*"));
 foreach ($dir3 as $s_conc) {
   if ($s_conc->getFilename() != '.' && $s_conc->getFilename() != '..')
-    $concepts[$s_conc->getFilename()] = "assets/" . $s_conc->getFilename();
+    $concepts[$s_conc->getFilename()] = "assets/concepts/" . $s_conc->getFilename();
 }
 
 ?>
@@ -41,7 +41,8 @@ foreach ($dir3 as $s_conc) {
 
 <div class="row">
   <h3 class="topic">Algorithms</h3>
-  <?php foreach ($algorithms as $algo_name => $algo_path) : ?> <div class="column">
+  <?php foreach ($algorithms as $algo_name => $algo_path) : ?>
+  <div class="column">
     <div class="card">
       <img src="<?php echo $algo_path; ?>" alt="<?= $algo_name ?>">
       <p><?php$algo_name?></p>
@@ -52,7 +53,8 @@ foreach ($dir3 as $s_conc) {
 
 <div class="row">
   <h3 class="topic">Concepts</h3>
-  <?php foreach ($concepts as $conc_name => $conc_path) : ?> <div class="column">
+  <?php foreach ($concepts as $conc_name => $conc_path) : ?>
+  <div class="column">
     <div class="card">
       <img src="<?php echo $conc_path; ?>" alt="<?= $conc_name ?>">
       <p><?php$conc_name?></p>
