@@ -11,7 +11,7 @@
   <div class="main">
     <div class="content">
       <form action="/" method="post">
-        <h3 class="feedback-title">Submit Your Feedback Here!</h3>
+        <h2 class="feedback-title">Submit Your Feedback Here!</h2>
         <textarea name="Feedback" id="" cols="75" rows="10"></textarea>
         <input type="submit" value="Submit">
       </form>
