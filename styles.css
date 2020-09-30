@@ -61,3 +61,13 @@ footer {
   margin-left: 100px;
   margin-right: 100px;
 }
+
+iframe.videos {
+  margin-left: 24px;
+  margin-bottom: 16px;
+}
+
+h3.selectedplaylist {
+  margin-left: 16px;
+  margin-bottom: 24px;
+}
