@@ -15,17 +15,17 @@ function get_topics($filepath)
 
 <?php function cardrow($arr, $name)
 { ?>
-  <div class="row">
-    <h3 class="topic"><?= $name ?></h3>
-    <?php foreach ($arr as $arr_name => $arr_path) : ?>
-      <div class="column">
-        <div class="card">
-          <img src="<?php echo $arr_path; ?>" alt="<?= $arr_name ?>">
-          <p class="topic-name"><?= basename($arr_name, ".png") ?></p>
-        </div>
-      </div>
-    <?php endforeach ?>
+<div class="row">
+  <h3 class="topic"><?= $name ?></h3>
+  <?php foreach ($arr as $arr_name => $arr_path) : ?>
+  <div class="column">
+    <a href="playlists/playlists.php" class="card" onclick="playlistretrieval()">
+      <img src="<?php echo $arr_path; ?>" alt="<?= $arr_name ?>">
+      <p class="topic-name"><?= basename($arr_name, ".png") ?></p>
+    </a>
   </div>
+  <?php endforeach ?>
+</div>
 <?php } ?>
 <?php
 

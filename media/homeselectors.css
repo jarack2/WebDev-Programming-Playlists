@@ -26,13 +26,18 @@ img {
 }
 
 .card {
+  display: block;
   box-shadow: 0 4px 4px 0 rgba(255, 255, 255, 0.2); /* this adds the "card" effect */
   padding: 24px;
   text-align: center;
   background-color: #1f1a42bf;
   margin-top: 12px;
   border-radius: 12px;
+  cursor: pointer;
+}
 
+.card:hover {
+  background-color: #08032bbf;
 }
 
 @media screen and (max-width: 600px) {
