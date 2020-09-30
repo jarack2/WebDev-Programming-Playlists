@@ -1,6 +1,10 @@
 @import "structure/structure.css";
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css";
 
+.active {
+  color: red;
+}
+
 ::-webkit-scrollbar {
   width: 12px;
   background: #343434;

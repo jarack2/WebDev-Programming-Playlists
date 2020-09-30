@@ -1,3 +1,4 @@
+<?php $selected_page = "login" ?>
 <html>
 
 <head>

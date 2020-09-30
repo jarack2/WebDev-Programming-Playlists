@@ -1,3 +1,4 @@
+<?php $selected_page = "playlists" ?>
 <html>
 
 <head>
