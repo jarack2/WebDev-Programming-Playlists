@@ -8,7 +8,8 @@
     </ul>
     <ul class="footer">
       <li><a href="/feedback/feedback.php"><i class="fas fa-comment-alt"></i> Feedback</a></li>
-      <li><a href="/login/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
+      <li><a href="/account/signup.php"><i class="fas fa-user-plus"></i> Sign Up</a>
+      <li><a href="/account/login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
       </li>
     </ul>
   </div>
