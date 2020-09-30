@@ -8,8 +8,8 @@
 
 <body>
   <?php require_once "structure/structure.php"; ?>
-
   <div class="main">
+    <!-- Congratulations! You found an EASTER EGG! The first 3 teachers to find this hidden comment will give me 10 points of extra credit. Shhh! That is all. -->
     <?php require_once "media/homeselectors.php"; ?>
   </div>
 </body>
