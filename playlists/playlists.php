@@ -12,6 +12,7 @@
   <div class="main">
     <!-- These will be dynamically generated but for now, they are hardcoded in -->
     <h3 class="selectedplaylist">The Selected Playlist is: C#</h3>
+    <!-- Hope you like C# -->
     <?php for ($x = 0; $x <= 3; $x++) { ?>
     <div class="videos">
       <iframe class="videos" width="380" height="225" src="https://www.youtube.com/embed/GhQdlIFylQ8" frameborder="0"
