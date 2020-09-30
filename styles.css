@@ -2,24 +2,20 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css";
 
 ::-webkit-scrollbar {
-  width: 20px;
+  width: 12px;
   background: #343434;
-  /* visibility: hidden; */
 }
 
-/* ::-webkit-scrollbar:hover {
-  visibility: visible;
-} */
 
 ::-webkit-scrollbar-thumb:hover {
   width: 24px;
-  /* visibility: visible; */
 }
 
 ::-webkit-scrollbar-thumb {
-  /* visibility: hidden; */
-  background-color: #055e68;
-  border-radius: 48px;
+  background-color: #212121;
+  border: 1px solid rgb(0,255,255, 0.6);
+  border-radius: 18px;
+
 }
 
 body {
@@ -32,10 +28,6 @@ body {
   margin-left: 200px;
   margin-bottom: 24px;
 }
-
-/* * {
-  overflow: hidden;
-} */
 
 iframe.videos {
   margin-left: 24px;
