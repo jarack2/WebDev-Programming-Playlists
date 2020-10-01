@@ -90,6 +90,12 @@ iframe.videos {
   margin-bottom: 16px;
 }
 
+@media screen and (max-width: 450px) {
+  iframe.videos {
+    margin-left: 8px;
+  }
+}
+
 h3.selectedplaylist {
   margin-left: 16px;
   margin-bottom: 24px;
