@@ -1,13 +1,16 @@
 @import "../styles.css";
 
 textarea {
+  resize: vertical;
   align-items: center;
   display: block;
   margin: 0 auto;
   padding: 10px 0;
   font-size: 24px;
-
+  width: 60%;
+  height: 40%;
 }
+
 .feedback-title {
   margin-bottom: 24px;
   text-align: center;
