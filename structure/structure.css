@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700&display=swap");
 
 * {
   margin: 0;
@@ -6,11 +6,12 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  font-family: 'Josefin Slab', sans-serif;
+  font-family: "Josefin Slab", sans-serif;
   overflow-x: hidden;
 }
 
-h1, h4 {
+h1,
+h4 {
   text-align: center;
 }
 
@@ -28,19 +29,19 @@ h1, h4 {
 }
 
 @media screen and (max-width: 450px) {
-    #menu {
-      visibility: hidden;
-    }
-} 
+  #menu {
+    visibility: hidden;
+  }
+}
 
 @media screen and (min-width: 451px) {
   #menu {
     visibility: visible;
   }
-} 
+}
 
 .active {
-  color: #FF0000;
+  color: #ff0000;
 }
 
 #menu .footer {
@@ -51,7 +52,7 @@ h1, h4 {
 }
 
 li {
-  list-style: none; 
+  list-style: none;
   margin-bottom: 8px;
   margin-left: 8px;
   overflow: visible;
@@ -60,7 +61,6 @@ li {
 li a {
   font-size: 32px;
   text-decoration: none;
-
 }
 
 .title {
@@ -69,7 +69,7 @@ li a {
   margin-right: 200px;
   box-shadow: 0 0 10px #cccccc;
   border: 4px solid #dddddd10;
-  padding: 8px 0; 
+  padding: 8px 0;
   text-align: center;
 }
 
@@ -96,7 +96,7 @@ li a {
 }
 
 a {
-  color:white;
+  color: white;
 }
 
 li a:active {
@@ -130,6 +130,7 @@ li a:active {
   display: none;
   float: right;
   font-size: 32px;
+  margin-right: 8px;
 }
 
 @media screen and (min-width: 451px) {
