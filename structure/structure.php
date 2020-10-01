@@ -1,5 +1,8 @@
 <div class="structure">
-  <div class="menu">
+  <i class="fas fa-bars" onclick="togglemenu()"></i>
+
+  <div id="menu">
+    <i class="far fa-window-close" id="closer" onclick="togglemenu()"></i>
     <h3 class="navtitle">Programming Playlists</h3>
     <ul>
       <li>
@@ -46,3 +49,17 @@
     <h4>A tool to help developers learn new topics.</h4>
   </div>
 </div>
+
+<script>
+  function togglemenu() {
+    menu = document.getElementById('menu');
+    closer = document.getElementById('closer');
+    if (menu.style.visibility === 'visible') {
+      menu.style.removeProperty('visibility'); // needs to remove the property to reset after the window resize
+      closer.style.visibility = 'hidden'; // stays hidden after window resize
+    } else {
+      menu.style.visibility = 'visible';
+      closer.style.visibility = 'visible';
+    }
+  }
+</script>

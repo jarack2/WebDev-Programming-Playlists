@@ -78,6 +78,13 @@ footer {
   margin-right: 100px;
 }
 
+@media screen and (max-width: 650px) {
+  .about-container p {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
+
 iframe.videos {
   margin-left: 24px;
   margin-bottom: 16px;

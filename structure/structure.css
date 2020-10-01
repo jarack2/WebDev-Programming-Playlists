@@ -19,7 +19,7 @@ h1, h4 {
   position: relative;
 }
 
-.menu {
+#menu {
   position: fixed;
   width: 200px;
   height: 100%;
@@ -28,16 +28,22 @@ h1, h4 {
 }
 
 @media screen and (max-width: 450px) {
-    .menu {
+    #menu {
       visibility: hidden;
     }
-}
+} 
+
+@media screen and (min-width: 451px) {
+  #menu {
+    visibility: visible;
+  }
+} 
 
 .active {
   color: #FF0000;
 }
 
-.menu .footer {
+#menu .footer {
   position: fixed;
   bottom: 50px;
   max-width: 200px;
@@ -105,4 +111,30 @@ li a:active {
   margin-top: 0;
   margin-bottom: 12px;
   margin-left: 8px;
+}
+
+.fas.fa-bars {
+  visibility: hidden;
+  position: fixed;
+  top: 12px;
+  left: 16px;
+  font-size: 32px;
+}
+
+@media screen and (max-width: 450px) {
+  .fas.fa-bars {
+    visibility: visible;
+  }
+}
+
+.far.fa-window-close {
+  visibility: hidden;
+  float: right;
+  font-size: 32px;
+}
+
+@media screen and (min-width: 451px) {
+  .far.fa-window-close {
+    visibility: hidden;
+  }
 }
