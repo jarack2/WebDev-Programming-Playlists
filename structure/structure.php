@@ -56,10 +56,10 @@
     closer = document.getElementById('closer');
     if (menu.style.visibility === 'visible') {
       menu.style.removeProperty('visibility'); // needs to remove the property to reset after the window resize
-      closer.style.visibility = 'hidden'; // stays hidden after window resize
+      closer.style.display = 'none'; // stays hidden after window resize
     } else {
       menu.style.visibility = 'visible';
-      closer.style.visibility = 'visible';
+      closer.style.display = 'unset';
     }
   }
 </script>
