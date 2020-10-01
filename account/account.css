@@ -6,6 +6,18 @@ div.content {
   margin: 48px 0 32px 30%;
 }
 
+@media screen and (max-width: 650px) {
+  div.content {
+    margin: 48px 0 32px 8%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  div.content {
+    margin: 48px 0 32px 5%;
+  }
+}
+
 .input {
   height: 50px;
   width: 250px;
@@ -15,9 +27,15 @@ div.content {
 }
 
 input[type="submit"] {
-  margin: 32px auto 48px 200px;
+  margin: 32px auto 48px 30%;
   padding: 12px 36px;
   font-size: large;
+}
+
+@media screen and (min-width: 850px) {
+  input[type="submit"] {
+    margin-left: 25%;
+  }
 }
 
 .credentials {
@@ -27,6 +45,9 @@ input[type="submit"] {
   margin-right: auto;
 }
 
-.username, .email, .signup, .login {
+.username,
+.email,
+.signup,
+.login {
   margin-bottom: 24px;
 }
