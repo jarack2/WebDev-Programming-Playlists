@@ -27,6 +27,12 @@ h1, h4 {
   padding: 30px 0;
 }
 
+@media screen and (max-width: 450px) {
+    .menu {
+      visibility: hidden;
+    }
+}
+
 .active {
   color: #FF0000;
 }
@@ -61,6 +67,29 @@ li a {
   text-align: center;
 }
 
+
+@media screen and (max-width: 815px) {
+  .title {
+    margin-left: 300px;
+    margin-right: 100px;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .title {
+    margin-left: 225px;
+    margin-right: 25px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .title {
+    margin-left: 64px;
+    margin-right: 64px;
+    font-size: 12px;
+  }
+}
+
 a {
   color:white;
 }
@@ -76,18 +105,4 @@ li a:active {
   margin-top: 0;
   margin-bottom: 12px;
   margin-left: 8px;
-}
-
-@media screen and (max-width: 815px) {
-  .title {
-    margin-left: 300px;
-    margin-right: 100px;
-  }
-}
-
-@media screen and (max-width: 615px) {
-  .title {
-    margin-left: 225px;
-    margin-right: 25px;
-  }
 }

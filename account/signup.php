@@ -5,6 +5,7 @@
   <link rel="stylesheet" type="text/css" href="account.css">
   <link rel="stylesheet" type="text/css" href="../styles.css">
   <title id="home">Signup | Programming Playlists</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body> <?php require_once "../structure/structure.php"; ?> <div class="main">
@@ -12,8 +13,7 @@
       <h2 class="signup"> Create an Account:</h3>
         <form action="/index.php" method="get" class="credentials">
           <div class="email">
-            <span> Enter Your Email </span>&nbsp; <input class="input" type="text" name="email" id="email"
-              placeholder="Email">
+            <span> Enter Your Email </span>&nbsp; <input class="input" type="text" name="email" id="email" placeholder="Email">
           </div>
           <div class="username">
             <span>Create a Username</span>

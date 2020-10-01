@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="playlists/playlists.css">
   <title id="home">Programming Playlists</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
