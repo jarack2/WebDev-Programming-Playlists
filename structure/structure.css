@@ -114,7 +114,7 @@ li a:active {
 
 .fas.fa-bars {
   visibility: hidden;
-  position: fixed;
+  position: absolute;
   top: 12px;
   left: 16px;
   font-size: 32px;
