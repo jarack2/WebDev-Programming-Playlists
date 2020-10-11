@@ -86,6 +86,12 @@ iframe.videos {
   height: 225px;
 }
 
+@media screen and (min-width: 1450px) {
+  iframe.videos {
+    width: 30%;
+  }
+}
+
 @media screen and (max-width: 600px) {
   iframe.videos {
     width: 250px;
@@ -104,4 +110,8 @@ iframe.videos {
 h3.selectedplaylist {
   margin-left: 16px;
   margin-bottom: 24px;
+}
+
+.error {
+  color: rgb(175, 26, 26);
 }
