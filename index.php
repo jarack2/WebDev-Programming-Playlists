@@ -5,6 +5,10 @@ if (!isset($_SESSION["logged_in"])) {
   $_SESSION["logged_in"] = false;
 }
 
+if (!isset($_SESSION['admin_logged_in'])) {
+  $_SESSION['admin_logged_in'] = false;
+}
+
 $selected_page = "home"
 
 ?>
@@ -21,6 +25,9 @@ $selected_page = "home"
 <body>
   <?php require_once "structure/structure.php"; ?>
   <div class="main">
+    <?php if ($_SESSION["admin_logged_in"]) { ?>
+      <span class="authenticated"> Admin Logged in</span>
+    <?php } ?>
     <?php if ($_SESSION["logged_in"]) { ?>
       <span class="authenticated"> Logged in</span>
     <?php } ?>

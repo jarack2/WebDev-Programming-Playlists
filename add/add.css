@@ -1,0 +1,64 @@
+body {
+  display: block;
+}
+
+div.content {
+  margin: 48px 0 32px 10%;
+}
+
+@media screen and (max-width: 650px) {
+  div.content {
+    margin: 48px 0 32px 8%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  div.content {
+    margin: 48px 0 32px 5%;
+  }
+}
+
+.input {
+  height: 50px;
+  width: 750px;
+  font-size: 24px;
+  margin-left: 15%;
+  text-align: center;
+}
+
+input[type="submit"] {
+  margin: 16px auto 48px 40%;
+  padding: 12px 36px;
+  font-size: large;
+}
+
+@media screen and (min-width: 850px) {
+  input[type="submit"] {
+    margin-left: 38%;
+  }
+}
+
+.credentials {
+  align-items: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video-name,
+.video-link,
+.video-topic {
+  margin-bottom: 24px;
+}
+
+.logged-in-text {
+  font-size: 32px;
+  color: #3dec55;
+}
+
+.logout-btn {
+  color: white;
+  background-color: maroon;
+  box-shadow: 0px 0px 0px 2px dimgrey;
+  border: none;
+}
