@@ -80,7 +80,7 @@ class Connection
     $videos->bindParam(1, $topic, PDO::PARAM_STR);
     $videos->execute();
 
-    return $videos->fetchAll();
+    return $videos->fetchAll(PDO::FETCH_ASSOC);
   }
 
   // adds a video to the db (admin function)
