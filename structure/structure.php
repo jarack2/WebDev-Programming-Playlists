@@ -25,11 +25,6 @@
       </li>
     </ul>
     <ul class="footer">
-      <li>
-        <a <?php if ($selected_page == "feedback") echo "class='active';"; ?> href="/feedback/feedback.php">
-          <i class="fas fa-comment-alt"></i>
-          Feedback
-        </a>
       </li>
       <li>
         <a <?php if ($selected_page == "signup") echo "class='active';"; ?> href="/account/signup.php">
@@ -42,6 +37,11 @@
           Login
         </a>
       </li>
+      <li>
+        <a <?php if ($selected_page == "feedback") echo "class='active';"; ?> href="/feedback/feedback.php">
+          <i class="fas fa-comment-alt"></i>
+          Feedback
+        </a>
     </ul>
   </div>
   <div class="title">

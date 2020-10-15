@@ -11,15 +11,19 @@ function get_topics($filepath)
   return $arr;
 }
 
-?> <?php function cardrow($arr, $name)
+?>
+
+<?php function cardrow($arr, $name)
 { ?> <div class="row">
-  <h3 class="topic"><?= $name ?></h3> <?php foreach ($arr as $arr_name => $arr_path) : ?> <div class="column">
-    <a href="playlists/playlists.php" class="card" onclick="playlistretrieval()">
-      <img src="<?php echo $arr_path; ?>" alt="<?= $arr_name ?>">
-      <p class="topic-name"><?= basename($arr_name, ".png") ?></p>
-    </a>
-  </div> <?php endforeach ?>
-</div> <?php } ?> <?php
+    <h3 class="topic"><?= $name ?></h3> <?php foreach ($arr as $arr_name => $arr_path) : ?> <div class="column">
+        <a href="playlists/playlists.php" class="card" onclick="playlistretrieval()">
+          <img src="<?= $arr_path; ?>" alt="<?= $arr_name ?>">
+          <p class="topic-name"><?= basename($arr_name, ".png") ?></p>
+        </a>
+      </div> <?php endforeach ?>
+  </div>
+<?php } ?>
+<?php
 
 $languages = get_topics("assets/languages/");
 $algorithms = get_topics("assets/algorithms/");
