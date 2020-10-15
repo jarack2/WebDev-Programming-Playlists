@@ -5,10 +5,12 @@ include_once('../database/Connection.php');
 $_SESSION["error_message"] = null;
 $_SESSION["valid_user"] = true;
 
+
 if (!empty($_POST)) { // creates user if form submitted
   $conn = new Connection(false);
   if ($conn->login($_POST["username"], $_POST["password"])) {
-    $_SESSION['logged_in'] = true;
+    $_SESSION["logged_in"] = true;
+    $_SESSION["username"] = $_POST["username"];
   } else {
     $_SESSION["error_message"] = "The username or password is incorrect, Please try again.";
   }

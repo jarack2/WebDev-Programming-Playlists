@@ -52,3 +52,12 @@ input[type="submit"] {
 .login {
   margin-bottom: 24px;
 }
+
+.logged-in-text {
+  font-size: 32px;
+  color: #3dec55;
+}
+
+.logout-btn {
+  color: #ff6562;
+}

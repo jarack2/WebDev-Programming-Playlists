@@ -1,6 +1,8 @@
 <?php
 session_start();
 $selected_page = "login";
+if (!isset($_SESSION['logged_in'])) // if the user is not logged in
+  $_SESSION['logged_in'] = false;
 ?>
 
 <html>
@@ -14,19 +16,26 @@ $selected_page = "login";
 
 <body> <?php require_once "../structure/structure.php"; ?> <div class="main">
     <div class="content">
-      <h2 class="login">Login:</h3>
-        <form action="login_handler.php" class="credentials" method="post">
-          <?php if (isset($_SESSION["error_message"])) { ?>
-            <span class="error"> <?php echo ($_SESSION["error_message"]); ?> </span>
-          <?php } ?>
-          <div class="username">
-            <input class="input" name="username" type="text" id="name" placeholder="Username">
-          </div>
-          <div class="password">
-            <input class="input" name="password" type="password" id="passwd" placeholder="Password">
-          </div>
-          <input type="submit" value="Submit" />
-        </form>
+      <h2 class="login">Login:</h2>
+      <?php if ($_SESSION['logged_in']) { ?>
+        <form action="logout_handler.php" class="credentials" method="post">
+          <span class="logged-in-text">You are logged in as <?= $_SESSION["username"] ?> </span>
+          <input class="logout-btn" type="submit" name="logout" value="Logout" />
+        <?php } else { ?>
+          <form action="login_handler.php" class="credentials" method="post">
+            <?php if (isset($_SESSION["error_message"])) { ?>
+              <span class="error"> <?php echo ($_SESSION["error_message"]); ?> </span>
+            <?php } ?>
+            <div class="username">
+              <input class="input" name="username" type="text" id="name" placeholder="Username">
+            </div>
+            <div class="password">
+              <input class="input" name="password" type="password" id="passwd" placeholder="Password">
+            </div>
+            <input type="submit" value="Submit" />
+          </form>
+        <?php } ?>
+
     </div>
   </div>
 </body> <?php require_once "../structure/footer.php"; ?>
