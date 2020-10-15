@@ -95,6 +95,6 @@ class Connection
   }
 }
 
-$conn = new Connection(false); // true if we want to deploy to heroku
+$conn = new Connection(true); // true if we want to deploy to heroku
 // $conn->create_user("jared2@gmail.com", "jaredr", "jared123");
 // $conn->login("jaredr", "jared123");

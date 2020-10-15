@@ -9,7 +9,7 @@ $_SESSION["valid_user"] = true;
 
 if (!empty($_POST)) { // creates user if form submitted with valid credentials
   include_once('../database/Connection.php');
-  $conn = new Connection(false);
+  $conn = new Connection(true);
   $email = $_POST["email"];
   $username = $_POST["username"];
   $password = $_POST["password"];
