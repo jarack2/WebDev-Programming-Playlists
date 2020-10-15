@@ -4,6 +4,7 @@ include_once('../database/Connection.php');
 
 $_SESSION["error_message"] = null;
 $_SESSION["valid_user"] = true;
+$heroku = true;
 
 
 if (!empty($_POST)) { // creates user if form submitted
@@ -17,9 +18,17 @@ if (!empty($_POST)) { // creates user if form submitted
 }
 
 if ($_SESSION['logged_in']) {
-  header("Location:http://cs401fp/");
+  if ($heroku) {
+    header("Location:https://programmingplaylists.herokuapp.com/");
+  } else {
+    header("Location:http://cs401fp/");
+  }
   exit();
 } else {
-  header("Location:http://cs401fp/account/login.php");
+  if ($heroku) {
+    header("Location:https://programmingplaylists.herokuapp.com/account/login.php");
+  } else {
+    header("Location:http://cs401fp/account/login.php");
+  }
   exit();
 }
