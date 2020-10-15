@@ -7,11 +7,11 @@ $_SESSION["password_message"] = null;
 $_SESSION["exists_message"] = null;
 $_SESSION["valid_user"] = true;
 
-$heroku = true;
+$heroku = false;
 
 if (!empty($_POST)) { // creates user if form submitted with valid credentials
   include_once('../database/Connection.php');
-  $conn = new Connection(true);
+  $conn = new Connection($heroku);
   $email = $_POST["email"];
   $username = $_POST["username"];
   $password = $_POST["password"];

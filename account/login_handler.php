@@ -4,11 +4,11 @@ include_once('../database/Connection.php');
 
 $_SESSION["error_message"] = null;
 $_SESSION["valid_user"] = true;
-$heroku = true;
+$heroku = false;
 
 
 if (!empty($_POST)) { // creates user if form submitted
-  $conn = new Connection(true);
+  $conn = new Connection($heroku);
   if ($conn->login($_POST["username"], $_POST["password"])) {
     $_SESSION["logged_in"] = true;
     $_SESSION["username"] = $_POST["username"];
