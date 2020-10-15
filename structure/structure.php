@@ -23,6 +23,14 @@
           About
         </a>
       </li>
+      <?php if ($_SESSION["admin_logged_in"]) { ?>
+        <li>
+          <a <?php if ($selected_page == "add") echo "class='active';"; ?> href="/add/add.php">
+            <i class="fas fa-plus-square"></i>&nbsp;
+            Add
+          </a>
+        </li>
+      <?php } ?>
     </ul>
     <ul class="footer">
       </li>
