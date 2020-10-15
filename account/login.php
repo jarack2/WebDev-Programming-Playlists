@@ -16,14 +16,14 @@ $selected_page = "login";
     <div class="content">
       <h2 class="login">Login:</h3>
         <form action="login_handler.php" class="credentials" method="post">
+          <?php if (isset($_SESSION["error_message"])) { ?>
+            <span class="error"> <?php echo ($_SESSION["error_message"]); ?> </span>
+          <?php } ?>
           <div class="username">
             <input class="input" name="username" type="text" id="name" placeholder="Username">
-            <?php if (isset($_SESSION["error_message"])) { ?>
-              <span class="error"> <?php echo ($_SESSION["error_message"]); ?> </span>
-            <?php } ?>
           </div>
           <div class="password">
-            <input class="input" name="password" type="password" placeholder="Password">
+            <input class="input" name="password" type="password" id="passwd" placeholder="Password">
           </div>
           <input type="submit" value="Submit" />
         </form>

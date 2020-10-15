@@ -10,7 +10,7 @@ if (!empty($_POST)) { // creates user if form submitted
   if ($conn->login($_POST["username"], $_POST["password"])) {
     $_SESSION['logged_in'] = true;
   } else {
-    $_SESSION["error_message"] = "The user does not exist, Please try again.";
+    $_SESSION["error_message"] = "The username or password is incorrect, Please try again.";
   }
 }
 

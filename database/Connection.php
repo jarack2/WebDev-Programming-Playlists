@@ -44,10 +44,12 @@ class Connection
   public function login($name, $pass)
   {
     $conn = $this->getConnection();
-    $query_user = $conn->prepare("SELECT Username, Password FROM Users WHERE Username = \"?\" AND Password = \"?\";");
+    $query_user = $conn->prepare("SELECT Username, Password FROM Users WHERE Username = ? AND Password = ?;");
     $query_user->bindParam(1, $name, PDO::PARAM_STR);
     $query_user->bindParam(2, $pass, PDO::PARAM_STR);
     $query_user->execute();
+
+    // echo print_r($query_user->fetch(PDO::FETCH_ASSOC));
 
     if (!$query_user->fetch(PDO::FETCH_ASSOC))
       return null;
