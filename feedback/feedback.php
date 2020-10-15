@@ -1,4 +1,6 @@
-<?php $selected_page = "feedback" ?>
+<?php
+session_start();
+$selected_page = "feedback" ?>
 <html>
 
 <head>

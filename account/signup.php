@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once('../Connection.php');
 $selected_page = "signup";
 $username_message = "";

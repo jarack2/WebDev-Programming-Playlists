@@ -1,4 +1,7 @@
-<?php $selected_page = "home" ?>
+<?php
+session_start();
+$selected_page = "home"
+?>
 <html>
 
 <head>

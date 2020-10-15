@@ -1,6 +1,7 @@
-<?php $selected_page = "login";
+<?php
+session_start();
+$selected_page = "login";
 include_once('../Connection.php');
-
 
 if (!empty($_GET)) { // creates user if form submitted
   $conn = new Connection(false);

@@ -1,4 +1,6 @@
-<?php $selected_page = "about" ?>
+<?php
+session_start();
+$selected_page = "about" ?>
 <html>
 
 <head>

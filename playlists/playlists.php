@@ -1,4 +1,7 @@
-<?php $selected_page = "playlists" ?>
+<?php
+session_start();
+$selected_page = "playlists"
+?>
 <html>
 
 <head>
