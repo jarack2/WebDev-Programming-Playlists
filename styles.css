@@ -115,3 +115,8 @@ h3.selectedplaylist {
 .error {
   color: rgb(175, 26, 26);
 }
+
+.authenticated {
+  float: right;
+  margin-right: 24px;
+}

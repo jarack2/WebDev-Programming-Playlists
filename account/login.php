@@ -1,17 +1,8 @@
 <?php
 session_start();
 $selected_page = "login";
-include_once('../Connection.php');
-
-if (!empty($_GET)) { // creates user if form submitted
-  $conn = new Connection(false);
-  if ($conn->login(trim($_GET["username"]), $_GET["password"])) {
-    echo ("logged in\n");
-  }
-  print_r($_GET);
-}
-
 ?>
+
 <html>
 
 <head>
@@ -24,9 +15,12 @@ if (!empty($_GET)) { // creates user if form submitted
 <body> <?php require_once "../structure/structure.php"; ?> <div class="main">
     <div class="content">
       <h2 class="login">Login:</h3>
-        <form method="get" class="credentials">
+        <form action="login_handler.php" class="credentials" method="post">
           <div class="username">
-            <input class="input" type="text" name="username" id="name" placeholder="Username">
+            <input class="input" name="username" type="text" id="name" placeholder="Username">
+            <?php if (isset($_SESSION["error_message"])) { ?>
+              <span class="error"> <?php echo ($_SESSION["error_message"]); ?> </span>
+            <?php } ?>
           </div>
           <div class="password">
             <input class="input" name="password" type="password" placeholder="Password">
