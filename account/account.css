@@ -27,7 +27,7 @@ div.content {
 }
 
 input[type="submit"] {
-  margin: 32px auto 48px 30%;
+  margin: 16px auto 48px 30%;
   padding: 12px 36px;
   font-size: large;
 }
@@ -46,6 +46,7 @@ input[type="submit"] {
 }
 
 .username,
+.password,
 .email,
 .signup,
 .login {
