@@ -58,6 +58,12 @@ footer {
   }
 }
 
+i.fas.fa,
+.fa,
+.fas {
+  line-height: 36px;
+}
+
 .about-container {
   margin-bottom: 24px;
 }
