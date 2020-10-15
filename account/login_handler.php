@@ -17,7 +17,7 @@ if (!empty($_POST)) { // creates user if form submitted
   }
 }
 
-if ($_SESSION['logged_in']) {
+if ($_SESSION['logged_in']) { // redirects based on if user successfully logged in
   if ($heroku) {
     header("Location:https://programmingplaylists.herokuapp.com/");
   } else {
