@@ -46,9 +46,17 @@ if (!empty($_POST)) { // creates user if form submitted with valid credentials
 }
 
 if ($_SESSION['logged_in']) {
-  header("Location:http://cs401fp/");
+  if ($heroku) {
+    header("Location:https://programmingplaylists.herokuapp.com/");
+  } else {
+    header("Location:http://cs401fp/");
+  }
   exit();
 } else {
-  header("Location:http://cs401fp/account/signup.php");
+  if ($heroku) {
+    header("Location:https://programmingplaylists.herokuapp.com/account/signup.php");
+  } else {
+    header("Location:http://cs401fp/account/signup.php");
+  }
   exit();
 }
