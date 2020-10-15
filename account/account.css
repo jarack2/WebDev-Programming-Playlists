@@ -59,5 +59,8 @@ input[type="submit"] {
 }
 
 .logout-btn {
-  color: #ff6562;
+  color: white;
+  background-color: maroon;
+  box-shadow: 0px 0px 0px 2px dimgrey;
+  border: none;
 }

@@ -19,7 +19,7 @@ $selected_page = "signup";
         <?php if ($_SESSION['logged_in']) { ?>
           <form action="logout_handler.php" class="credentials" method="post">
             <span class="logged-in-text">You are logged in as <?= $_SESSION["username"] ?> </span>
-            <input class="logout-btn" type="submit" name="logout" value="Logout" />
+            <input class="logout-btn" type="submit" name="logout" value="Logout"></input>
           <?php } else { ?>
             <form action="signup_handler.php" method="post" class="credentials">
               <?php if (isset($_SESSION["exists_message"])) { ?>
