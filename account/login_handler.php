@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('../Connection.php');
+include_once('../database/Connection.php');
 
 $_SESSION["error_message"] = null;
 $_SESSION["valid_user"] = true;

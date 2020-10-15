@@ -8,7 +8,7 @@ $_SESSION["exists_message"] = null;
 $_SESSION["valid_user"] = true;
 
 if (!empty($_POST)) { // creates user if form submitted with valid credentials
-  include_once('../Connection.php');
+  include_once('../database/Connection.php');
   $conn = new Connection(false);
   $email = $_POST["email"];
   $username = $_POST["username"];
