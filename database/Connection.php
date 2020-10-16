@@ -84,6 +84,7 @@ class Connection
   // adds a video to the db (admin function)
   public function add_video($name, $link, $topic)
   {
+    $heroku_auto_inc = 10;
     $result = false;
     $conn = $this->getConnection();
 
@@ -98,7 +99,7 @@ class Connection
     $id->bindParam(":db", $this->db, PDO::PARAM_STR);
     $id->execute();
 
-    $video_id = $id->fetch(PDO::FETCH_ASSOC)["AUTO_INCREMENT"] - 1; // the id of the video that was just inserted
+    $video_id = $id->fetch(PDO::FETCH_ASSOC)["AUTO_INCREMENT"] - $heroku_auto_inc; // the id of the video that was just inserted
 
     // adding the video id and topic to the playlists table
     $videos = $conn->prepare("INSERT INTO Playlists (Topic, VideoID) VALUES (:topic, :id);");
