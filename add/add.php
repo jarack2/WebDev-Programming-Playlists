@@ -21,12 +21,11 @@ if (!isset($_SESSION["success"])) {
 <body> <?php require_once "../structure/structure.php"; ?> <div class="main">
     <div class="content">
       <h2 class="add-videos">Add a Video:</h3>
-        <?= $_SESSION["result"] ?>
         <form action="add_handler.php" class="credentials" method="post">
           <?php if ($_SESSION["success"]) { ?>
-            <span class="success-message"> <?php echo ($_SESSION["success"]); ?> </span>
+            <h1 class="success-message"> <?php echo ($_SESSION["success"]); ?> </h1>
           <?php } else if (!($_SESSION["success"])) { ?>
-            <span class="error-message"> <?php echo ($_SESSION["error"]); ?> </span>
+            <h1 class="error-message"> <?php echo ($_SESSION["error"]); ?> </h1>
           <?php } ?>
           <div class="video-name">
             <input class="input" name="video_name" type="text" id="name" width="100%" placeholder="Video Name">
