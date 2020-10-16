@@ -9,17 +9,20 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE Videos (
-  ID int NOT NULL UNIQUE,
+  ID int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
   Name varchar(32) NOT NULL,
   Link varchar(255) NOT NULL
 );
 
 CREATE TABLE Favorites (
   UserID int NOT NULL,
-  VideoID int NOT NULL
+  VideoID int NOT NULL,
+  FOREIGN KEY (VideoID) REFERENCES Videos(ID),
+  FOREIGN KEY (UserID) REFERENCES User(ID)
 );
 
 CREATE TABLE Playlists (
   Topic varchar(255) NOT NULL,
-  VideoID int NOT NULL
+  VideoID int NOT NULL,
+  FOREIGN KEY (VideoID) REFERENCES Videos(ID)
 );

@@ -84,18 +84,33 @@ class Connection
   }
 
   // adds a video to the db (admin function)
-  public function add_video($id, $name, $link)
+  public function add_video($name, $link, $topic)
   {
     $conn = $this->getConnection();
-    $videos = $conn->prepare("INSERT INTO Videos (ID, Name, Link) VALUES (?, ?, ?);");
-    $videos->bindParam(1, $id, PDO::PARAM_INT);
-    $videos->bindParam(2, $name, PDO::PARAM_STR);
-    $videos->bindParam(3, $link, PDO::PARAM_STR);
+    $videos = $conn->prepare("INSERT INTO Videos (Name, Link) VALUES (?, ?);");
+    $videos->bindParam(1, $name, PDO::PARAM_STR);
+    $videos->bindParam(2, $link, PDO::PARAM_STR);
     $videos->execute();
+
+    // getting the video id from the videos table
+    $id = $conn->prepare("SELECT ID FROM VIDEOS WHERE NAME = ? AND LINK = ?");
+    $id->bindParam(1, $name, PDO::PARAM_STR);
+    $id->bindParam(2, $link, PDO::PARAM_STR);
+
+    $id->execute();
+    $video_id = $id->fetch();
+
+    // adding the video id and topic to the playlists table
+    $videos = $conn->prepare("INSERT INTO Playlists (Topic, VideoID) VALUES (?, ?);");
+    $videos->bindParam(1, $topic, PDO::PARAM_STR);
+    $videos->bindParam(2, $video_id, PDO::PARAM_STR);
+    $videos->execute();
+
+    return true;
   }
 }
 
-$heroku = true;
+$heroku = false;
 $conn = new Connection($heroku); // true if we want to deploy to heroku
 // $conn->create_user("jared2@gmail.com", "jaredr", "jared123");
 // $conn->login("jaredr", "jared123");

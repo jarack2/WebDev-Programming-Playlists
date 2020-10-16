@@ -15,13 +15,13 @@ $selected_page = "add";
 
 <body> <?php require_once "../structure/structure.php"; ?> <div class="main">
     <div class="content">
-      <h2 class="add videos">Add a Video:</h3>
-        <form class="credentials" method="post">
+      <h2 class="add-videos">Add a Video:</h3>
+        <form action="add_handler.php" class="credentials" method="post">
           <?php if (isset($_SESSION["error_message"])) { ?>
             <span class="error"> <?php echo ($_SESSION["error_message"]); ?> </span>
           <?php } ?>
           <div class="video-name">
-            <input class="input" name="name" type="text" id="name" width="100%" placeholder="Video Name">
+            <input class="input" name="video_name" type="text" id="name" width="100%" placeholder="Video Name">
           </div>
           <div class="video-link">
             <input class="input" name="video_link" type="text" id="link" placeholder="Video Link">
