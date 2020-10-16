@@ -109,11 +109,10 @@ class Connection
     echo $videos;
     echo $this->db;
 
-
-
     return $result;
   }
 }
 
 $heroku = true;
 $conn = new Connection($heroku); // true if we want to deploy to heroku
+$conn->add_video("jared's test", "jared's test", "jared's test");
