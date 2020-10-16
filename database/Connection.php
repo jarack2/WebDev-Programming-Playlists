@@ -101,9 +101,9 @@ class Connection
     $video_id = $id->fetch(PDO::FETCH_ASSOC)["AUTO_INCREMENT"] - 1; // the id of the video that was just inserted
 
     // adding the video id and topic to the playlists table
-    $videos = $conn->prepare("INSERT INTO Playlists (Topic, VideoID) VALUES (?, ?);");
-    $videos->bindParam(1, $topic, PDO::PARAM_STR);
-    $videos->bindParam(2, $video_id, PDO::PARAM_STR);
+    $videos = $conn->prepare("INSERT INTO Playlists (Topic, VideoID) VALUES (:topic, :id);");
+    $videos->bindParam(":topic", $topic, PDO::PARAM_STR);
+    $videos->bindParam(":id", $video_id, PDO::PARAM_INT);
     $result = $result && $videos->execute();
 
     return $result;
