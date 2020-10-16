@@ -1,7 +1,7 @@
 <?php
 session_start();
 $_SESSION["logged_in"] = false;
-$heroku = true;
+$heroku = false;
 
 if ($heroku) {
   header("Location:https://programmingplaylists.herokuapp.com/account/login.php");
