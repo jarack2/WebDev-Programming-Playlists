@@ -26,10 +26,11 @@ $selected_page = "home"
   <?php require_once "structure/structure.php"; ?>
   <div class="main">
     <?php if ($_SESSION["admin_logged_in"]) { ?>
-      <span class="authenticated"> Admin Logged in</span>
+      <div class="authenticated">Admin Authenticated</div>
+      <br />
     <?php } ?>
     <?php if ($_SESSION["logged_in"]) { ?>
-      <span class="authenticated"> Logged in</span>
+      <div class="authenticated"> Logged in</div>
     <?php } ?>
     <!-- Congratulations! You found an EASTER EGG! The first 3 teachers to find this hidden comment must give Jared 10 points of extra credit. Shhh! That is all. -->
     <?php require_once "media/homeselectors.php"; ?>

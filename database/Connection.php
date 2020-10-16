@@ -49,8 +49,6 @@ class Connection
     $query_user->bindParam(2, $pass, PDO::PARAM_STR);
     $query_user->execute();
 
-    // echo print_r($query_user->fetch(PDO::FETCH_ASSOC));
-
     if (!$query_user->fetch(PDO::FETCH_ASSOC))
       return null;
 
@@ -86,31 +84,31 @@ class Connection
   // adds a video to the db (admin function)
   public function add_video($name, $link, $topic)
   {
+    $result = false;
     $conn = $this->getConnection();
+
+    // inserts a new video into the videos table
     $videos = $conn->prepare("INSERT INTO Videos (Name, Link) VALUES (?, ?);");
     $videos->bindParam(1, $name, PDO::PARAM_STR);
     $videos->bindParam(2, $link, PDO::PARAM_STR);
-    $videos->execute();
+    $result = $videos->execute();
 
     // getting the video id from the videos table
-    $id = $conn->prepare("SELECT ID FROM VIDEOS WHERE NAME = ? AND LINK = ?");
-    $id->bindParam(1, $name, PDO::PARAM_STR);
-    $id->bindParam(2, $link, PDO::PARAM_STR);
-
+    $id = $conn->prepare("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = :db AND TABLE_NAME = \"Videos\";");
+    $id->bindParam(":db", $this->db, PDO::PARAM_STR);
     $id->execute();
-    $video_id = $id->fetch();
+
+    $video_id = $id->fetch(PDO::FETCH_ASSOC)["AUTO_INCREMENT"] - 1; // the id of the video that was just inserted
 
     // adding the video id and topic to the playlists table
     $videos = $conn->prepare("INSERT INTO Playlists (Topic, VideoID) VALUES (?, ?);");
     $videos->bindParam(1, $topic, PDO::PARAM_STR);
     $videos->bindParam(2, $video_id, PDO::PARAM_STR);
-    $videos->execute();
+    $result = $result && $videos->execute();
 
-    return true;
+    return $result;
   }
 }
 
 $heroku = false;
 $conn = new Connection($heroku); // true if we want to deploy to heroku
-// $conn->create_user("jared2@gmail.com", "jaredr", "jared123");
-// $conn->login("jaredr", "jared123");

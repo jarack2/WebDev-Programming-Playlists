@@ -26,3 +26,8 @@ CREATE TABLE Playlists (
   VideoID int NOT NULL,
   FOREIGN KEY (VideoID) REFERENCES Videos(ID)
 );
+
+SELECT AUTO_INCREMENT
+FROM information_schema.TABLES
+WHERE TABLE_SCHEMA = "progplay"
+AND TABLE_NAME = "videos";

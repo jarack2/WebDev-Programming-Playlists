@@ -1,14 +1,20 @@
 <?php
-
+session_start();
 $heroku = false;
 
 if (!empty($_POST)) { // creates user if form submitted
   $video_name = $_POST["video_name"];
   $video_link = $_POST["video_link"];
   $video_topic = $_POST["video_topic"];
+
+  include_once('../database/Connection.php');
   $conn = new Connection($heroku);
-  if ($conn->add_video($video_name, $video_link,  $video_topic)) {
+  $result = $conn->add_video($video_name, $video_link,  $video_topic);
+  $_SESSION["result"] = $result;
+  if ($result) {
     $_SESSION["success"] = "Successfully added video " . $video_name;
+  } else {
+    $_SESSION["error"] = "Failed to add Video";
   }
 
   if ($heroku) {

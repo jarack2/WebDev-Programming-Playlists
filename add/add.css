@@ -62,3 +62,11 @@ input[type="submit"] {
   box-shadow: 0px 0px 0px 2px dimgrey;
   border: none;
 }
+
+.success-message {
+  color: green;
+}
+
+.error-message {
+  color: red;
+}

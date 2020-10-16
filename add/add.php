@@ -2,6 +2,11 @@
 session_start();
 
 $selected_page = "add";
+
+if (!isset($_SESSION["success"])) {
+  $_SESSION["success"] = false;
+}
+
 ?>
 
 <html>
@@ -16,9 +21,12 @@ $selected_page = "add";
 <body> <?php require_once "../structure/structure.php"; ?> <div class="main">
     <div class="content">
       <h2 class="add-videos">Add a Video:</h3>
+        <?= $_SESSION["result"] ?>
         <form action="add_handler.php" class="credentials" method="post">
-          <?php if (isset($_SESSION["error_message"])) { ?>
-            <span class="error"> <?php echo ($_SESSION["error_message"]); ?> </span>
+          <?php if ($_SESSION["success"]) { ?>
+            <span class="success-message"> <?php echo ($_SESSION["success"]); ?> </span>
+          <?php } else if (!($_SESSION["success"])) { ?>
+            <span class="error-message"> <?php echo ($_SESSION["error"]); ?> </span>
           <?php } ?>
           <div class="video-name">
             <input class="input" name="video_name" type="text" id="name" width="100%" placeholder="Video Name">
