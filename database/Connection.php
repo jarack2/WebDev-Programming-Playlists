@@ -115,4 +115,4 @@ class Connection
 
 $heroku = true;
 $conn = new Connection($heroku); // true if we want to deploy to heroku
-$conn->add_video("jared's test", "jared's test", "jared's test");
+$conn->add_video("jared's test", "jared's test", "jared's test"); //
