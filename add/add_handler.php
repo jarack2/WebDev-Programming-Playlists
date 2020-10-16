@@ -12,9 +12,9 @@ if (!empty($_POST)) { // creates user if form submitted
   $result = $conn->add_video($video_name, $video_link,  $video_topic);
   $_SESSION["result"] = $result;
   if ($result) {
-    $_SESSION["success"] = "Successfully added video " . $video_name;
+    $_SESSION["success"] = "Successfully added video: " . $video_name;
   } else {
-    $_SESSION["error"] = "Failed to add Video";
+    $_SESSION["error"] = "Failed to add video: $video_name";
   }
 
   if ($heroku) {
