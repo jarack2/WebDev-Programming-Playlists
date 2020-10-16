@@ -106,7 +106,7 @@ class Connection
     $videos->bindParam(":id", $video_id, PDO::PARAM_INT);
     $result = $result && $videos->execute();
 
-    print_r($videos);
+    echo ($videos->debugDumpParams());
     echo $this->db;
 
     return $result;
