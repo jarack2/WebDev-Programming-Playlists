@@ -10,8 +10,8 @@ CREATE TABLE Users (
 
 CREATE TABLE Videos (
   ID int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
-  Name varchar(32) NOT NULL,
-  Link varchar(255) NOT NULL
+  Name varchar(32) NOT NULL UNIQUE,
+  Link varchar(255) NOT NULL UNIQUE
 );
 
 CREATE TABLE Favorites (
