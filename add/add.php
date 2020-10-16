@@ -18,15 +18,16 @@ if (!isset($_SESSION["success"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body> <?php require_once "../structure/structure.php"; ?> <div class="main">
+<body>
+  <?php require_once "../structure/structure.php"; ?> <div class="main">
+    <?php if ($_SESSION["success"]) { ?>
+      <h1 class="success-message"> <?php echo ($_SESSION["success"]); ?> </h1>
+    <?php } else if (!($_SESSION["success"])) { ?>
+      <h1 class="error-message"> <?php echo ($_SESSION["error"]); ?> </h1>
+    <?php } ?>
     <div class="content">
       <h2 class="add-videos">Add a Video:</h3>
         <form action="add_handler.php" class="credentials" method="post">
-          <?php if ($_SESSION["success"]) { ?>
-            <h1 class="success-message"> <?php echo ($_SESSION["success"]); ?> </h1>
-          <?php } else if (!($_SESSION["success"])) { ?>
-            <h1 class="error-message"> <?php echo ($_SESSION["error"]); ?> </h1>
-          <?php } ?>
           <div class="video-name">
             <input class="input" name="video_name" type="text" id="name" width="100%" placeholder="Video Name">
           </div>
