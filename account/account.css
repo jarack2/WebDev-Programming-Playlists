@@ -60,7 +60,14 @@ input[type="submit"] {
 
 .logout-btn {
   color: white;
-  background-color: maroon;
+  background-color: darkred;
   box-shadow: 0px 0px 0px 2px dimgrey;
   border: none;
+}
+
+.logout-btn:hover {
+  background-color: maroon;
+  border: 1px solid #c02727;
+  box-shadow: 0 5px 5px rgba(133, 25, 25, 0.2);
+  color: inherit;
 }
