@@ -20,9 +20,9 @@ if (!empty($_POST)) {
     exit();
   } else {
     if ($heroku) {
-      header("Location:https://programmingplaylists.herokuapp.com/account/adminlogin.php");
+      header("Location:https://programmingplaylists.herokuapp.com/account/admin_login.php.php");
     } else {
-      header("Location:http://cs401fp/account/adminlogin.php");
+      header("Location:http://cs401fp/account/admin_login.php.php");
     }
     exit();
   }
