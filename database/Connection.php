@@ -111,5 +111,5 @@ class Connection
   }
 }
 
-$heroku = false;
+$heroku = true;
 $conn = new Connection($heroku); // true if we want to deploy to heroku
