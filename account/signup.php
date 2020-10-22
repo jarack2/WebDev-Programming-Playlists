@@ -16,7 +16,7 @@ $selected_page = "signup";
   <?php require_once "../structure/structure.php"; ?> <div class="main">
     <div class="content">
       <h2 class="signup"> Create an Account:</h3>
-        <?php if ($_SESSION['logged_in']) { ?>
+        <?php if ($_SESSION["authenticated"]) { ?>
           <form action="logout_handler.php" class="credentials" method="post">
             <span class="logged-in-text">You are logged in as <?= $_SESSION["username"] ?> </span>
             <input class="logout-btn" type="submit" name="logout" value="Logout"></input>

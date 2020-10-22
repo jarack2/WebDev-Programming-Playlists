@@ -7,7 +7,7 @@ $_SESSION["password_message"] = null;
 $_SESSION["exists_message"] = null;
 $_SESSION["valid_user"] = true;
 
-$heroku = true;
+$heroku = false;
 
 if (!empty($_POST)) { // creates user if form submitted with valid credentials
   include_once('../database/Connection.php');
@@ -43,11 +43,11 @@ if (!empty($_POST)) { // creates user if form submitted with valid credentials
 
   if ($_SESSION["valid_user"]) {
     $conn->create_user($email, $username, $password);
-    $_SESSION['logged_in'] = true;
+    $_SESSION["authenticated"] = true;
   }
 }
 
-if ($_SESSION['logged_in']) {
+if ($_SESSION["authenticated"]) {
   if ($heroku) {
     header("Location:https://programmingplaylists.herokuapp.com/");
   } else {
