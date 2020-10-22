@@ -1,3 +1,9 @@
+<?php 
+if (!isset($_SESSION["admin_authenticated"])) {
+  $_SESSION["admin_authenticated"] = false;
+}
+?>
+
 <div class="structure">
   <i class="fas fa-bars" onclick="togglemenu()"></i>
 
@@ -23,7 +29,7 @@
           About
         </a>
       </li>
-      <?php if ($_SESSION["admin_logged_in"]) { ?>
+      <?php if ($_SESSION["admin_authenticated"]) { ?>
         <li>
           <a <?php if ($selected_page == "add") echo "class='active';"; ?> href="/add/add.php">
             <i class="fas fa-plus-square"></i>&nbsp;
@@ -33,7 +39,14 @@
       <?php } ?>
     </ul>
     <ul class="footer">
-      </li>
+    <?php if ($_SESSION["authenticated"]) { ?>
+      <li>
+        <a <?php if ($selected_page == "logout") echo "class='active';"; ?> href="/account/logout.php">
+        <i class="fas fa-sign-out-alt"></i>
+          Logout
+        </a>
+      <li>
+    <?php } else { ?>
       <li>
         <a <?php if ($selected_page == "signup") echo "class='active';"; ?> href="/account/signup.php">
           <i class="fas fa-user-plus"></i>
@@ -45,6 +58,7 @@
           Login
         </a>
       </li>
+      <?php } ?>
       <li>
         <a <?php if ($selected_page == "feedback") echo "class='active';"; ?> href="/feedback/feedback.php">
           <i class="fas fa-comment-alt"></i>
