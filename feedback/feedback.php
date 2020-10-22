@@ -1,6 +1,8 @@
 <?php
 session_start();
-$selected_page = "feedback" ?>
+$selected_page = "feedback";
+?>
+
 <html>
 
 <head>
@@ -13,10 +15,13 @@ $selected_page = "feedback" ?>
 <body>
   <?php require_once "../structure/structure.php"; ?>
   <div class="main">
+  <?php if ($_SESSION["feedback_submitted"]) { ?>
+    <div class="success">Your feedback has been submitted! Thank you!</div>
+  <?php } ?>
     <div class="content">
-      <form action="/" method="post">
+      <form action="feedback_handler.php" method="post">
         <h2 class="feedback-title">Submit Your Feedback Here!</h2>
-        <textarea name="Feedback" id="" cols="75" rows="10"></textarea>
+        <textarea labelfor="feedback" name="Feedback" id="feedback" name="feedback" cols="75" rows="10"></textarea>
         <input type="submit" value="Submit">
       </form>
     </div>

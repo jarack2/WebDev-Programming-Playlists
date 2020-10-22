@@ -118,6 +118,12 @@ h3.selectedplaylist {
   margin-bottom: 24px;
 }
 
+.success {
+  font-size: 24px;
+  color: #3dec55;
+  text-align: center;
+}
+
 .error {
   color: rgb(175, 26, 26);
 }
