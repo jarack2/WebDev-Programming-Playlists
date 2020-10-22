@@ -1,7 +1,7 @@
 <?php
 session_start();
 $selected_page = "logout";
-$heroku = true;
+$heroku = false;
 
 if (!isset($_SESSION["authenticated"]) || !($_SESSION["authenticated"])) { // making sure that user cannot get to this page by clicking the back button
   if ($heroku) {
