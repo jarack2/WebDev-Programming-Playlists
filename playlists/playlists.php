@@ -19,7 +19,7 @@ $selected_page = "playlists"
     <!-- Hope you like C# -->
 
     <div class="videos">
-      <?php for ($x = 0; $x <= 5; $x++) { ?>
+      <?php for ($x = 0; $x < 6; $x++) { ?>
         <span class="video-container">
           <i id="favorites" class="fa fa-heart"></i>
           <iframe class="videos" src="https://www.youtube.com/embed/GhQdlIFylQ8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
