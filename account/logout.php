@@ -1,7 +1,7 @@
 <?php
 session_start();
 $selected_page = "logout";
-$heroku = true;
+$heroku = false;
 
 if (!isset($_SESSION["authenticated"]) || !($_SESSION["authenticated"])) { // making sure that user cannot get to this page by clicking the back button
   if ($heroku) {
@@ -22,8 +22,8 @@ if (!isset($_SESSION["authenticated"]) || !($_SESSION["authenticated"])) { // ma
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body> 
-  <?php require_once "../structure/structure.php"; ?> 
+<body>
+  <?php require_once "../structure/structure.php"; ?>
   <div class="main">
     <div class="content">
       <h2 class="login">Logout:</h2>

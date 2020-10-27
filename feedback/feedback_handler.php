@@ -1,6 +1,6 @@
 <?php
 session_start();
-$heroku = true;
+$heroku = false;
 $name = "Anonymous";
 
 if (isset($_SESSION["username"])) {
