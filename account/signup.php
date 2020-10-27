@@ -2,7 +2,7 @@
 session_start();
 $selected_page = "signup";
 
-$heroku = true;
+$heroku = false;
 if ($_SESSION["authenticated"]) { // making sure that user cannot get to this page by clicking the back button
   if ($heroku) {
     header("Location:https://programmingplaylists.herokuapp.com/account/logout.php");
