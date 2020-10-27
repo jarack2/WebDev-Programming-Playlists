@@ -1,6 +1,10 @@
 <?php
 session_start();
 $selected_page = "feedback";
+
+if (!isset($_SESSION["feedback_not_sent"])) {
+  $_SESSION["feedback_not_sent"] = false;
+}
 ?>
 
 <html>
@@ -15,13 +19,17 @@ $selected_page = "feedback";
 <body>
   <?php require_once "../structure/structure.php"; ?>
   <div class="main">
-  <?php if ($_SESSION["feedback_submitted"]) { ?>
-    <div class="success">Your feedback has been submitted! Thank you!</div>
-  <?php } ?>
+    <?php if ($_SESSION["feedback_submitted"]) { ?>
+      <div class="success">Your feedback has been submitted! Thank you!</div>
+    <?php } ?>
+    <?php if ($_SESSION["feedback_not_sent"]) { ?>
+      <div class="error">There was an error submitting your feedback. Please try again.</div>
+    <?php } ?>
+    <br>
     <div class="content">
-      <form action="feedback_handler.php" method="post">
-        <h2 class="feedback-title">Submit Your Feedback Here!</h2>
-        <textarea labelfor="feedback" name="Feedback" id="feedback" name="feedback" cols="75" rows="10"></textarea>
+      <form action="feedback_handler.php" method="post" id="feedback">
+        <h2 class="feedback-title"><label for="feedback">Submit Your Feedback Here!</label></h2>
+        <textarea id="feedback" name="feedback" cols="75" rows="10"></textarea>
         <input type="submit" value="Submit">
       </form>
     </div>
