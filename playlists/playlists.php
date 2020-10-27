@@ -18,7 +18,7 @@ $selected_page = "playlists"
     <h3 class="selectedplaylist">The Selected Playlist is: C#</h3>
     <!-- Hope you like C# -->
     <div class="videos">
-      <?php for ($x = 0; $x < 6; $x++) { ?>
+      <?php for ($x = 0; $x < 16; $x++) { ?>
         <span class="video-container">
           <i id="favorites" class="fa fa-heart"></i>
           <iframe class="videos" src="https://www.youtube.com/embed/GhQdlIFylQ8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
