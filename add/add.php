@@ -2,10 +2,21 @@
 session_start();
 
 $selected_page = "add";
+$heroku = true;
+
+if (!$_SESSION["admin_authenticated"]) {
+  if ($heroku) {
+    header("Location:https://programmingplaylists.herokuapp.com");
+  } else {
+    header("Location:http://cs401fp");
+  }
+}
 
 if (!isset($_SESSION["success"])) {
   $_SESSION["success"] = false;
 }
+
+
 
 ?>
 
