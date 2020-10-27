@@ -3,7 +3,8 @@ session_start();
 $selected_page = "login";
 if (!isset($_SESSION["authenticated"])) // if the user is not logged in
   $_SESSION["authenticated"] = false;
-  
+
+$heroku = false;
 if ($_SESSION["authenticated"]) { // making sure that user cannot get to this page by clicking the back button
   if ($heroku) {
     header("Location:https://programmingplaylists.herokuapp.com/account/logout.php");
@@ -11,6 +12,10 @@ if ($_SESSION["authenticated"]) { // making sure that user cannot get to this pa
     header("Location:http://cs401fp/account/logout.php");
   }
   exit();
+}
+$username = "";
+if (isset($_SESSION["login_form"])) {
+  $username = $_SESSION["login_form"]["username"];
 }
 ?>
 
@@ -23,8 +28,8 @@ if ($_SESSION["authenticated"]) { // making sure that user cannot get to this pa
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body> 
-  <?php require_once "../structure/structure.php"; ?> 
+<body>
+  <?php require_once "../structure/structure.php"; ?>
   <div class="main">
     <div class="content">
       <h2 class="login">Login:</h2>
@@ -33,10 +38,10 @@ if ($_SESSION["authenticated"]) { // making sure that user cannot get to this pa
           <span class="error"> <?php echo ($_SESSION["error_message"]); ?> </span>
         <?php } ?>
         <div class="username">
-          <input class="input" name="username" type="text" id="name" placeholder="Username">
+          <input labelfor="username" class="input" name="username" type="text" id="name" placeholder="Username" value="<?= $username ?>">
         </div>
         <div class="password">
-          <input class="input" name="password" type="password" id="passwd" placeholder="Password">
+          <input labelfor="password" class="input" name="password" type="password" id="passwd" placeholder="Password">
         </div>
         <input type="submit" value="Submit" />
       </form>

@@ -4,15 +4,16 @@ include_once('../database/Connection.php');
 
 $_SESSION["error_message"] = null;
 $_SESSION["valid_user"] = true;
-$heroku = true;
-
+$heroku = false;
 
 if (!empty($_POST)) { // creates user if form submitted
   $conn = new Connection($heroku);
   if ($conn->login($_POST["username"], $_POST["password"])) {
     $_SESSION["authenticated"] = true;
     $_SESSION["username"] = $_POST["username"];
+    unset($_SESSION["login_form"]);
   } else {
+    $_SESSION["login_form"] = $_POST; // repopulating the form if errors occur
     $_SESSION["error_message"] = "The username or password is incorrect, Please try again.";
   }
 }
