@@ -17,7 +17,6 @@ $selected_page = "playlists"
     <!-- These will be dynamically generated but for now, they are hardcoded in -->
     <h3 class="selectedplaylist">The Selected Playlist is: C#</h3>
     <!-- Hope you like C# -->
-
     <div class="videos">
       <?php for ($x = 0; $x < 6; $x++) { ?>
         <span class="video-container">
@@ -26,8 +25,6 @@ $selected_page = "playlists"
         </span>
       <?php } ?>
     </div>
-
-
   </div>
 </body>
 <?php require_once "../structure/footer.php"; ?>
