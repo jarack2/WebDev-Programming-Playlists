@@ -2,6 +2,7 @@
 session_start();
 $selected_page = "signup";
 
+$heroku = false;
 if ($_SESSION["authenticated"]) { // making sure that user cannot get to this page by clicking the back button
   if ($heroku) {
     header("Location:https://programmingplaylists.herokuapp.com/account/logout.php");
@@ -9,6 +10,14 @@ if ($_SESSION["authenticated"]) { // making sure that user cannot get to this pa
     header("Location:http://cs401fp/account/logout.php");
   }
   exit();
+}
+
+$username = "";
+$email = "";
+
+if (isset($_SESSION["signup_form"])) {
+  $email = $_SESSION["signup_form"]["email"];
+  $username = $_SESSION["signup_form"]["username"];
 }
 ?>
 
@@ -32,17 +41,17 @@ if ($_SESSION["authenticated"]) { // making sure that user cannot get to this pa
           <?php } else { ?>
             <form action="signup_handler.php" method="post" class="credentials">
               <?php if (isset($_SESSION["exists_message"])) { ?>
-                <p class="error"> <?php echo ($_SESSION["exists_message"]); ?> </p>
+                <span class="error"> <?php echo ($_SESSION["exists_message"]); ?> </span>
               <?php } ?>
               <div class="email">
                 <span> Enter Your Email </span>&nbsp;
-                <input class="input" type="text" name="email" id="email" placeholder="Email">
+                <input class="input" type="text" name="email" id="email" placeholder="Email" value="<?= $email ?>">
               </div>
-              <div class="username">
+              <div class=" username">
                 <span>Create a Username</span>
-                <input class="input" type="text" name="username" id="name" placeholder="Username">
+                <input class="input" type="text" name="username" id="name" placeholder="Username" value="<?= $username ?>">
                 <?php if (isset($_SESSION["username_message"])) { ?>
-                  <span class="error"><?php echo ($_SESSION["username_message"]); ?></span>
+                  <span class=" error"><?php echo ($_SESSION["username_message"]); ?></span>
                 <?php } ?>
 
               </div>

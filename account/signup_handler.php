@@ -43,7 +43,9 @@ if (!empty($_POST)) { // creates user if form submitted with valid credentials
 
   if ($_SESSION["valid_user"]) {
     $conn->create_user($email, $username, $password);
+    $_SESSION["username"] = $username;
     $_SESSION["authenticated"] = true;
+    unset($_SESSION["signup_form"]);
   }
 }
 
@@ -55,6 +57,7 @@ if ($_SESSION["authenticated"]) {
   }
   exit();
 } else {
+  $_SESSION["signup_form"] = $_POST;
   if ($heroku) {
     header("Location:https://programmingplaylists.herokuapp.com/account/signup.php");
   } else {
