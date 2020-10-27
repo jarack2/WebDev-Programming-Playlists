@@ -1,0 +1,82 @@
+/* .video-container {
+  width: 380px;
+  height: 225px;
+}
+
+iframe.videos {
+  margin-left: 24px;
+  margin-bottom: 16px;
+  width: 380px;
+  height: 225px;
+}
+
+@media screen and (min-width: 1450px) {
+  iframe.videos {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  iframe.videos {
+    width: 250px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  iframe.videos {
+    margin-left: 8px;
+    width: 300px;
+    height: 200px;
+  }
+}
+
+#favorites {
+  color: white;
+  opacity: 0.5;
+  position: relative;
+  float: right;
+  left: 15px;
+  top: 25px;
+  font-size: 18px;
+}
+
+#favorites:hover {
+  opacity: 1;
+}
+
+h3.selectedplaylist {
+  margin-left: 16px;
+  margin-bottom: 24px;
+} */
+
+#video-container {
+  width: 550px;
+  height: 500px;
+}
+
+#favorites {
+  color: white;
+  opacity: 0.5;
+  position: relative;
+  float: right;
+  left: 15px;
+  top: 25px;
+  font-size: 18px;
+}
+
+#favorites:hover {
+  opacity: 1;
+}
+
+iframe.videos {
+  margin-left: 24px;
+  margin-bottom: 16px;
+  width: 380px;
+  height: 225px;
+}
+
+h3.selectedplaylist {
+  margin-left: 16px;
+  margin-bottom: 24px;
+}
