@@ -5,6 +5,10 @@ $selected_page = "feedback";
 if (!isset($_SESSION["feedback_not_sent"])) {
   $_SESSION["feedback_not_sent"] = false;
 }
+
+if (!isset($_SESSION["feedback_submitted"])) {
+  $_SESSION["feedback_submitted"] = false;
+}
 ?>
 
 <html>

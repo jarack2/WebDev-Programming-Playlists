@@ -5,9 +5,6 @@ session_start();
 $heroku = true;
 $name = "Anonymous";
 
-$_SESSION["feedback_submitted"] = false;
-$_SESSION["feedback_not_sent"] = false;
-
 if (isset($_SESSION["username"])) {
   $name = $_SESSION["username"];
 }
