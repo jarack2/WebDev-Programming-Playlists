@@ -16,8 +16,6 @@ if (!isset($_SESSION["success"])) {
   $_SESSION["success"] = false;
 }
 
-
-
 ?>
 
 <html>

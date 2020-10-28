@@ -42,6 +42,7 @@ iframe.videos {
   font-size: 18px;
   top: -2%;
   overflow: visible;
+  height: 18px;
 }
 
 #favorites:hover {
