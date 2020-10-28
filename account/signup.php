@@ -34,38 +34,32 @@ if (isset($_SESSION["signup_form"])) {
   <?php require_once "../structure/structure.php"; ?> <div class="main">
     <div class="content">
       <h2 class="signup"> Create an Account:</h3>
-        <?php if ($_SESSION["authenticated"]) { ?>
-          <form action="logout_handler.php" class="credentials" method="post">
-            <span class="logged-in-text">You are logged in as <?= $_SESSION["username"] ?> </span>
-            <input class="logout-btn" type="submit" name="logout" value="Logout"></input>
-          <?php } else { ?>
-            <form action="signup_handler.php" method="post" class="credentials">
-              <?php if (isset($_SESSION["exists_message"])) { ?>
-                <span class="error"> <?php echo ($_SESSION["exists_message"]); ?> </span>
-              <?php } ?>
-              <div class="email">
-                <span> Enter Your Email </span>&nbsp;
-                <input class="input" type="text" name="email" id="email" placeholder="Email" value="<?= $email ?>">
-              </div>
-              <div class=" username">
-                <span>Create a Username</span>
-                <input class="input" type="text" name="username" id="name" placeholder="Username" value="<?= $username ?>">
-                <?php if (isset($_SESSION["username_message"])) { ?>
-                  <span class=" error"><?php echo ($_SESSION["username_message"]); ?></span>
-                <?php } ?>
-
-              </div>
-              <div class="password">
-                <span>Create a Password</span>&nbsp;
-                <input class="input" name="password" id="password" type="password" placeholder="Password">
-                <?php if (isset($_SESSION["password_message"])) { ?>
-                  <span class="error"><?php echo ($_SESSION["password_message"]); ?></span>
-                <?php } ?>
-
-              </div>
-              <input type="submit" value="Submit" />
-            </form>
+        <form action="signup_handler.php" method="post" class="credentials">
+          <?php if (isset($_SESSION["exists_message"])) { ?>
+            <span class="error"> <?php echo ($_SESSION["exists_message"]); ?> </span>
           <?php } ?>
+          <div class="email">
+            <span> Enter Your Email </span>&nbsp;
+            <input class="input" type="text" name="email" id="email" placeholder="Email" value="<?= $email ?>">
+          </div>
+          <div class=" username">
+            <span>Create a Username</span>
+            <input class="input" type="text" name="username" id="name" placeholder="Username" value="<?= $username ?>">
+            <?php if (isset($_SESSION["username_message"])) { ?>
+              <span class=" error"><?php echo ($_SESSION["username_message"]); ?></span>
+            <?php } ?>
+
+          </div>
+          <div class="password">
+            <span>Create a Password</span>&nbsp;
+            <input class="input" name="password" id="password" type="password" placeholder="Password">
+            <?php if (isset($_SESSION["password_message"])) { ?>
+              <span class="error"><?php echo ($_SESSION["password_message"]); ?></span>
+            <?php } ?>
+
+          </div>
+          <input type="submit" value="Submit" />
+        </form>
     </div>
   </div>
 </body>
