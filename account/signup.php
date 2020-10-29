@@ -35,26 +35,39 @@ if (isset($_SESSION["signup_form"])) {
     <div class="content">
       <h2 class="signup"> Create an Account:</h3>
         <form action="signup_handler.php" method="post" class="credentials">
-          <?php if (isset($_SESSION["exists_message"])) { ?>
-            <span class="error"> <?php echo ($_SESSION["exists_message"]); ?> </span>
+          <?php if (isset($_SESSION["exists_messages"])) { ?>
+            <span class="error">
+              <?php
+              foreach ($_SESSION["exists_messages"] as $error) {
+                echo $error;
+                echo "<br />";
+              } ?>
+            </span>
           <?php } ?>
           <div class="email">
-            <span> Enter Your Email </span>&nbsp;
+            <label for="email"> Enter Your Email </label>&nbsp;
             <input class="input" type="text" name="email" id="email" placeholder="Email" value="<?= $email ?>">
           </div>
           <div class=" username">
-            <span>Create a Username</span>
-            <input class="input" type="text" name="username" id="name" placeholder="Username" value="<?= $username ?>">
+            <label for="username">Create a Username</label>
+            <input class="input" type="text" name="username" id="username" placeholder="Username" value="<?= $username ?>">
             <?php if (isset($_SESSION["username_message"])) { ?>
               <span class=" error"><?php echo ($_SESSION["username_message"]); ?></span>
             <?php } ?>
 
           </div>
           <div class="password">
-            <span>Create a Password</span>&nbsp;
+            <label for="password">Create a Password</label>&nbsp;
             <input class="input" name="password" id="password" type="password" placeholder="Password">
-            <?php if (isset($_SESSION["password_message"])) { ?>
-              <span class="error"><?php echo ($_SESSION["password_message"]); ?></span>
+            <?php if (isset($_SESSION["password_messages"])) { ?>
+              <span class="error">
+                <?php
+                foreach ($_SESSION["password_messages"] as $error) {
+                  echo $error;
+                  echo "<br />";
+                } ?>
+
+              </span>
             <?php } ?>
 
           </div>
