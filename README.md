@@ -1,3 +1,5 @@
 <h1> Programming Playlists </h1
 
-This is a website final project for my Web Development class. 
+This is my final project for my web development course. 
+
+It is a website built with PHP, HTML, CSS, and JavaScript.
