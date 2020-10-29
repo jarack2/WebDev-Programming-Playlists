@@ -7,6 +7,7 @@ if (!empty($_POST)) {
   $admin_password = $_POST["admin_password"];
   $admin_encryption_key = $_POST["admin_key"];
 
+  // if this were production, I would have taken this out, but leaving it in so anyone can see the functionality that the admin login adds
   if ($admin_login == "jaredrackley@dmin" && $admin_password == "jaredistheroot123" && $admin_encryption_key == "8d9ca0bdbc4ab6bc180d0fc3e6e21711892708cdb260c16ffb4a6923a06fbfd6") {
     $_SESSION["admin_authenticated"] = true;
   }
