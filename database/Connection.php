@@ -59,13 +59,23 @@ class Connection
   public function matching_credential($type, $credential)
   {
     $conn = $this->getConnection();
-    $query_user = $conn->prepare("SELECT ? FROM Users WHERE ? = \"?\";");
-    $query_user->bindParam(1, $type, PDO::PARAM_STR);
-    $query_user->bindParam(2, $credential, PDO::PARAM_STR);
+
+    if ($type == "Email") {
+      $query_user = $conn->prepare("SELECT * FROM Users WHERE Email = :credential;");
+      $query_user->bindParam(":credential", $credential, PDO::PARAM_STR);
+    } else {
+      $query_user = $conn->prepare("SELECT * FROM Users WHERE Username = :credential;");
+      $query_user->bindParam(":credential", $credential, PDO::PARAM_STR);
+    }
+
     $query_user->execute();
 
-    if (!$query_user->fetch(PDO::FETCH_ASSOC))
+    $result = $query_user->fetchAll(PDO::FETCH_ASSOC);
+    echo print_r($result) . "\n";
+
+    if ($result) {
       return true;
+    }
 
     return false;
   }
