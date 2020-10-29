@@ -30,7 +30,7 @@ $selected_page = "home"
       <br />
     <?php } ?>
     <?php if ($_SESSION["authenticated"]) { ?>
-      <div class="authenticated">Welcome <?= $_SESSION["username"] ?>!</div>
+      <div class="authenticated">Welcome <?= htmlspecialchars($_SESSION["username"]) ?>!</div>
     <?php } ?>
     <!-- Congratulations! You found an EASTER EGG! The first 3 teachers to find this hidden comment must give Jared 10 points of extra credit. Shhh! That is all. -->
     <?php require_once "media/homeselectors.php"; ?>

@@ -28,7 +28,7 @@ if (!isset($_SESSION["authenticated"]) || !($_SESSION["authenticated"])) { // ma
     <div class="content">
       <h2 class="login">Logout:</h2>
       <form action="logout_handler.php" class="credentials" method="post">
-        <span class="logged-in-text">You are logged in as <?= $_SESSION["username"] ?> </span>
+        <span class="logged-in-text">You are logged in as <?= htmlspecialchars($_SESSION["username"]) ?> </span>
         <input class="logout-btn" type="submit" name="logout" value="Logout" />
       </form>
     </div>
