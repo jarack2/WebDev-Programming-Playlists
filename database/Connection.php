@@ -94,7 +94,7 @@ class Connection
   // adds a video to the db (admin function)
   public function add_video($name, $link, $topic)
   {
-    $heroku_auto_inc = 10;
+    $heroku_auto_inc = 1;
     $result = false;
     $conn = $this->getConnection();
 
