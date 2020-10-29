@@ -38,10 +38,12 @@ if (isset($_SESSION["login_form"])) {
           <span class="error"> <?php echo ($_SESSION["error_message"]); ?> </span>
         <?php } ?>
         <div class="username">
-          <input labelfor="username" class="input" name="username" type="text" id="name" placeholder="Username" value="<?= $username ?>">
+          <label for="username"> Enter Your Username: </label>
+          <input class="input" name="username" type="text" id="username" placeholder="Username" value="<?= $username ?>">
         </div>
         <div class="password">
-          <input labelfor="password" class="input" name="password" type="password" id="passwd" placeholder="Password">
+          <label for="password"> Enter Your Password: </label>&nbsp;
+          <input class="input" name="password" type="password" id="password" placeholder="Password">
         </div>
         <input type="submit" value="Submit" />
       </form>
