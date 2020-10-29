@@ -1,3 +1,3 @@
-This website is made using PHP, HTML, CSS etc. (More will be added throughout the semester).
+<h1> Programming Playlists </h1
 
 This is a website final project for my Web Development class. 
