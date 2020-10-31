@@ -119,6 +119,19 @@ class Connection
 
     return $result;
   }
+
+  // adds a fovorite to the database
+  public function add_favorites($user, $video)
+  {
+    $conn = $this->getConnection();
+
+    $favorites = $conn->prepare("INSERT INTO Favorites (UserID, VideoId) VALUES (:user, :video);");
+    $favorites->bindParam(":user", $user, PDO::PARAM_INT);
+    $favorites->bindParam(":video", $video, PDO::PARAM_INT);
+    $result = $favorites->execute();
+
+    return $result;
+  }
 }
 
 $heroku = true;
