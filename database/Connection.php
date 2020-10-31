@@ -125,12 +125,23 @@ class Connection
   {
     $conn = $this->getConnection();
 
-    $favorites = $conn->prepare("INSERT INTO Favorites (UserID, VideoId) VALUES (:user, :video);");
-    $favorites->bindParam(":user", $user, PDO::PARAM_INT);
-    $favorites->bindParam(":video", $video, PDO::PARAM_INT);
-    $result = $favorites->execute();
+    $favorite = $conn->prepare("INSERT INTO Favorites (UserID, VideoId) VALUES (:user, :video);");
+    $favorite->bindParam(":user", $user, PDO::PARAM_INT);
+    $favorite->bindParam(":video", $video, PDO::PARAM_INT);
+    $result = $favorite->execute();
 
     return $result;
+  }
+
+  // retrieves the user's favorites
+  public function get_favorites($user)
+  {
+    $conn = $this->getConnection();
+    $favorites = $conn->prepare("SELECT Link FROM Favorites JOIN Videos on Video.ID = VideoID WHERE UserID = ':userID'");
+    $favorites->bindParam(":userID", $user, PDO::PARAM_STR);
+    $favorites->execute();
+
+    return $favorites->fetchAll(PDO::FETCH_ASSOC);
   }
 }
 
