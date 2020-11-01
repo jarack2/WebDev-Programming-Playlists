@@ -125,9 +125,19 @@ class Connection
   {
     $conn = $this->getConnection();
 
-    $favorite = $conn->prepare("INSERT INTO Favorites (UserID, VideoId) VALUES (:user, :video);");
-    $favorite->bindParam(":user", $user, PDO::PARAM_INT);
-    $favorite->bindParam(":video", $video, PDO::PARAM_INT);
+    $userID = $conn->prepare("SELECT ID from Users where Username = :user;");
+    $userID->bindParam(":user", $user, PDO::PARAM_STR);
+    $userID->execute();
+    $user_id = $userID->fetch(PDO::FETCH_ASSOC)["ID"];
+
+    $videoID = $conn->prepare("SELECT ID from Videos where Name = :vidname;");
+    $videoID->bindParam(":vidname", $video, PDO::PARAM_STR);
+    $videoID->execute();
+    $video_id = $videoID->fetch(PDO::FETCH_ASSOC)["ID"];
+
+    $favorite = $conn->prepare("INSERT INTO Favorites (UserID, VideoID) VALUES (:userid, :videoid);");
+    $favorite->bindParam(":userid", $user_id, PDO::PARAM_INT);
+    $favorite->bindParam(":videoid", $video_id, PDO::PARAM_INT);
     $result = $favorite->execute();
 
     return $result;
@@ -137,8 +147,14 @@ class Connection
   public function get_favorites($user)
   {
     $conn = $this->getConnection();
-    $favorites = $conn->prepare("SELECT Link FROM Favorites JOIN Videos on Video.ID = VideoID WHERE UserID = ':userID'");
-    $favorites->bindParam(":userID", $user, PDO::PARAM_STR);
+
+    $userID = $conn->prepare("SELECT ID from Users where Username = :user;");
+    $userID->bindParam(":user", $user, PDO::PARAM_STR);
+    $userID->execute();
+    $id = $userID->fetch(PDO::FETCH_ASSOC)["ID"];
+
+    $favorites = $conn->prepare("SELECT Name, Link FROM Videos JOIN Favorites on Videos.ID = Favorites.VideoID WHERE UserID = :id;");
+    $favorites->bindParam(":id", $id, PDO::PARAM_INT);
     $favorites->execute();
 
     return $favorites->fetchAll(PDO::FETCH_ASSOC);
@@ -147,3 +163,6 @@ class Connection
 
 $heroku = false;
 $conn = new Connection($heroku); // true if we want to deploy to heroku
+
+// $conn->add_favorites("jared1", "test");
+// echo print_r($conn->get_favorites('jared1'));
