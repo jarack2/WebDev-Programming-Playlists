@@ -1,6 +1,6 @@
 <?php
 session_start();
-$heroku = false;
+$heroku = true;
 
 if (!empty($_POST)) {
   $admin_login = $_POST["admin_login"];
