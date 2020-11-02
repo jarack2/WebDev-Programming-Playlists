@@ -15,7 +15,7 @@ $to = new SendGrid\Email(null, "jaredrackley@u.boisestate.edu");
 $content = new SendGrid\Content("text/plain", $_POST["feedback"]);
 $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
-$apiKey = getenv('SENDGRID_API_KEY');
+$apiKey = $sendgrid_apikey;
 $sg = new \SendGrid($apiKey);
 
 $response = $sg->client->mail()->send()->post($mail);
