@@ -1,6 +1,6 @@
 <?php
 session_start();
-$heroku = true;
+$heroku = false;
 
 if (!empty($_POST)) { // creates user if form submitted
   $video_name = $_POST["video_name"];
