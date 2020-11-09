@@ -16,6 +16,10 @@ if (!isset($_SESSION["success"])) {
   $_SESSION["success"] = false;
 }
 
+if (!isset($_SESSION["error"])) {
+  $_SESSION["error"] = "";
+}
+
 ?>
 
 <html>
@@ -38,7 +42,7 @@ if (!isset($_SESSION["success"])) {
       <h2 class="add-videos">Add a Video:</h3>
         <form action="add_handler.php" class="credentials" method="post">
           <div class="video-name">
-            <input class="input" name="video_name" type="text" id="name" width="100%" placeholder="Video Name">
+            <input class="input" name="video_name" type="text" id="name" placeholder="Video Name">
           </div>
           <div class="video-link">
             <input class="input" name="video_link" type="text" id="link" placeholder="Video Link">
