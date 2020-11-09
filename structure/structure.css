@@ -138,3 +138,8 @@ li a:active {
     display: none;
   }
 }
+
+.admin-login-text {
+  float: right;
+  margin-right: 200px;
+}
