@@ -2,7 +2,7 @@
 require("sendgrid-php/sendgrid-php.php");
 require("sendgrid_config.php");
 session_start();
-$heroku = false;
+$heroku = true;
 $name = "Anonymous";
 
 if (isset($_SESSION["username"])) {
