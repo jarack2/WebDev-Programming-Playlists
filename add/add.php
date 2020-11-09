@@ -13,13 +13,16 @@ if (!$_SESSION["admin_authenticated"]) {
 }
 
 if (!isset($_SESSION["success"])) {
-  $_SESSION["success"] = false;
+  $_SESSION["success"] = "";
 }
 
 if (!isset($_SESSION["error"])) {
   $_SESSION["error"] = "";
 }
 
+if (!isset($_SESSION["valid_video"])) { // true until proven guilty
+  $_SESSION["valid_video"] = true;
+}
 ?>
 
 <html>
@@ -37,6 +40,9 @@ if (!isset($_SESSION["error"])) {
       <h1 class="success-message"> <?php echo ($_SESSION["success"]); ?> </h1>
     <?php } else if (!($_SESSION["success"])) { ?>
       <h1 class="error-message"> <?php echo ($_SESSION["error"]); ?> </h1>
+    <?php }
+      if (!$_SESSION["valid_video"]) { ?>
+      <h1 class="error-message"> <?php echo "The video was not valid. Please try again."; ?> </h1>
     <?php } ?>
     <div class="content">
       <h2 class="add-videos">Add a Video:</h3>
