@@ -161,7 +161,7 @@ class Connection
   }
 }
 
-$heroku = true;
+$heroku = false;
 $conn = new Connection($heroku); // true if we want to deploy to heroku
 
 // $conn->add_favorites("jared1", "test");

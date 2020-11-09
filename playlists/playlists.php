@@ -2,7 +2,7 @@
 require_once "../database/Connection.php"; 
 $selected_page = "playlists";
 session_start();
-$heroku = true;
+$heroku = false;
 $conn = new Connection($heroku); // true if we want to deploy to heroku
 $topic = $_SESSION["topic"];
 
