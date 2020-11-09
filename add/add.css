@@ -26,6 +26,12 @@ div.content {
   text-align: center;
 }
 
+@media screen and (max-width: 375px) {
+  .input {
+    width: 250px;
+  }
+}
+
 input[type="submit"] {
   margin: 16px auto 48px 40%;
   padding: 12px 36px;
