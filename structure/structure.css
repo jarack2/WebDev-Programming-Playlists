@@ -139,7 +139,7 @@ li a:active {
   }
 }
 
-.admin-login-text {
+#admin-login-text {
   float: right;
-  margin-right: 200px;
+  margin-right: 215px;
 }
