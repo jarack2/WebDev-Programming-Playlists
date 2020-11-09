@@ -52,6 +52,7 @@ if (!isset($_SESSION["admin_authenticated"])) {
           <i class="fas fa-user-plus"></i>
           Sign Up
         </a>
+      </li>
       <li>
         <a <?php if ($selected_page == "login") echo "class='active';"; ?> href="/account/login.php">
           <i class="fas fa-sign-in-alt"></i>
@@ -64,6 +65,7 @@ if (!isset($_SESSION["admin_authenticated"])) {
           <i class="fas fa-comment-alt"></i>
           Feedback
         </a>
+      </li>
     </ul>
   </div>
   <div class="title">
