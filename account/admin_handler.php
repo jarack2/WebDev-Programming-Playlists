@@ -21,9 +21,9 @@ if (!empty($_POST)) {
     exit();
   } else {
     if ($heroku) {
-      header("Location:https://programmingplaylists.herokuapp.com/account/admin_login.php.php");
+      header("Location:https://programmingplaylists.herokuapp.com/account/admin_login.php");
     } else {
-      header("Location:http://cs401fp/account/admin_login.php.php");
+      header("Location:http://cs401fp/account/admin_login.php");
     }
     exit();
   }
