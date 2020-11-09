@@ -10,8 +10,8 @@ $retrieved_video = $conn->get_videos($topic);
 $videos = array();
 
 foreach ($retrieved_video as $vid) { 
-  if (strstr($vid["Link"], "embed")) continue; // if the youtube url is correct
-  $videos[$vid["Name"]] = str_replace("watch?v=", "embed/", $vid["Link"]); // changing the youtube url and adding it to the video array
+  if (strstr($vid["Link"], "embed")) continue; // if the youtube url is correct and doesnt need to be modified
+  $videos[$vid["Name"]] = str_replace("watch?v=", "embed/", htmlspecialchars($vid["Link"])); // changing the youtube url and adding it to the video array
 }
 ?>
 
