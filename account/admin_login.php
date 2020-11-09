@@ -1,6 +1,15 @@
 <?php
 session_start();
 $selected_page = "admin_login";
+$heroku = false;
+
+if ($_SESSION["admin_authenticated"]) {
+  if ($heroku) {
+    header("Location:https://programmingplaylists.herokuapp.com");
+  } else {
+    header("Location:http://cs401fp");
+  }
+}
 ?>
 
 <html>
