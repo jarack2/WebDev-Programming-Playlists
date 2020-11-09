@@ -1,7 +1,7 @@
 <?php
 session_start();
 $selected_page = "admin_login";
-$heroku = false;
+$heroku = true;
 
 if ($_SESSION["admin_authenticated"]) {
   if ($heroku) {

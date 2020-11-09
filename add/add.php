@@ -2,7 +2,7 @@
 session_start();
 
 $selected_page = "add";
-$heroku = false;
+$heroku = true;
 
 if (!$_SESSION["admin_authenticated"]) {
   if ($heroku) {
