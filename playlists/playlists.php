@@ -1,7 +1,22 @@
 <?php
+require_once "../database/Connection.php"; 
+$selected_page = "playlists";
 session_start();
-$selected_page = "playlists"
+$heroku = false;
+$conn = new Connection($heroku); // true if we want to deploy to heroku
+$topic = $_SESSION["topic"];
+
+$retrieved_video = $conn->get_videos($topic);
+$videos = array();
+
+foreach ($retrieved_video as $vid) { 
+  if (strstr($vid["Link"], "embed")) continue; // if the youtube url is correct
+  $videos[$vid["Name"]] = str_replace("watch?v=", "embed/", $vid["Link"]); // changing the youtube url and adding it to the video array
+}
+
+
 ?>
+
 <html>
 
 <head>
@@ -16,12 +31,18 @@ $selected_page = "playlists"
   <div class="main">
     <!-- These will be dynamically generated but for now, they are hardcoded in -->
     <h3 class="selectedplaylist">The Selected Playlist is: C#</h3>
-    <!-- Hope you like C# -->
     <div class="videos">
-      <?php for ($x = 0; $x < 16; $x++) { ?>
+      <?php foreach ($videos as $video) {?>
         <span class="video-container">
           <i id="favorites" class="fa fa-heart"></i>
-          <iframe class="videos" src="https://www.youtube.com/embed/GhQdlIFylQ8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe 
+            class="videos" 
+            src="<?= $video ?>" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+          >
+          </iframe>
         </span>
       <?php } ?>
     </div>

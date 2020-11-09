@@ -13,10 +13,10 @@ function get_topics($filepath)
 
 ?>
 
-<?php function cardrow($arr, $name)
-{ ?> <div class="row">
+<?php function cardrow($arr, $name){ ?> 
+<div class="row">
     <h3 class="topic"><?= $name ?></h3> <?php foreach ($arr as $arr_name => $arr_path) : ?> <div class="column">
-        <a href="playlists/playlists.php" class="card" onclick="playlistretrieval()">
+        <a href="playlists/playlists.php" class="card" onclick="<?php $_SESSION["topic"] = basename($arr_name, ".png")?>">
           <img src="<?= $arr_path; ?>" alt="<?= $arr_name ?>">
           <p class="topic-name"><?= basename($arr_name, ".png") ?></p>
         </a>
