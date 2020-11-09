@@ -30,7 +30,7 @@ foreach ($retrieved_video as $vid) {
   <?php require_once "../structure/structure.php"; ?>
   <div class="main">
     <!-- These will be dynamically generated but for now, they are hardcoded in -->
-    <h3 class="selectedplaylist">The Selected Playlist is: C#</h3>
+    <h3 class="selectedplaylist">The Selected Playlist is: <?= $topic ?></h3>
     <div class="videos">
       <?php foreach ($videos as $video) {?>
         <span class="video-container">
