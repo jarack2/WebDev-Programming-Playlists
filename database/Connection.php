@@ -61,16 +61,22 @@ class Connection
     $conn = $this->getConnection();
 
     if ($type == "Email") {
-      $query_user = $conn->prepare("SELECT * FROM Users WHERE Email = :credential;");
-      $query_user->bindParam(":credential", $credential, PDO::PARAM_STR);
-    } else {
-      $query_user = $conn->prepare("SELECT * FROM Users WHERE Username = :credential;");
-      $query_user->bindParam(":credential", $credential, PDO::PARAM_STR);
+      $query = $conn->prepare("SELECT * FROM Users WHERE Email = :credential;");
+      $query->bindParam(":credential", $credential, PDO::PARAM_STR);
+    } else if ($type == "Username") {
+      $query = $conn->prepare("SELECT * FROM Users WHERE Username = :credential;");
+      $query->bindParam(":credential", $credential, PDO::PARAM_STR);
+    } else if ($type == "Video_Name") {
+      $query = $conn->prepare("SELECT * FROM Videos WHERE Name = :name;");
+      $query->bindParam(":name", $credential, PDO::PARAM_STR);
+    } else if ($type == "Video_Link") {
+      $query = $conn->prepare("SELECT * FROM Videos WHERE Link = :link;");
+      $query->bindParam(":link", $credential, PDO::PARAM_STR);
     }
 
-    $query_user->execute();
+    $query->execute();
 
-    $result = $query_user->fetchAll(PDO::FETCH_ASSOC);
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
     echo print_r($result) . "\n";
 
     if ($result) {
@@ -161,8 +167,15 @@ class Connection
   }
 }
 
-$heroku = true;
+$heroku = false;
 $conn = new Connection($heroku); // true if we want to deploy to heroku
 
+// $result = $conn->matching_credential("Username", "jared");
+
+// if ($result) {
+//   echo "there was a matching result.";
+// } else {
+//   echo "there was not a matching result.";
+// }
 // $conn->add_favorites("jared1", "test");
 // echo print_r($conn->get_favorites('jared1'));
