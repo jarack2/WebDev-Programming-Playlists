@@ -4,7 +4,7 @@ $selected_page = "login";
 if (!isset($_SESSION["authenticated"])) // if the user is not logged in
   $_SESSION["authenticated"] = false;
 
-$heroku = false;
+$heroku = true;
 if ($_SESSION["authenticated"]) { // making sure that user cannot get to this page by clicking the back button
   if ($heroku) {
     header("Location:https://programmingplaylists.herokuapp.com/account/logout.php");
