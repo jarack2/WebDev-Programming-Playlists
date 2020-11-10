@@ -45,7 +45,7 @@ cardrow($concepts, "Concepts");
 ?>
 <script>
   $('.card').click(function() {
-    const topicname = ".card-form-" + $(this).data("value");
-    $(topicname).submit();
+    const topic_name = ".card-form-" + $(this).data("value");
+    $(topic_name).submit();
   });
 </script>
