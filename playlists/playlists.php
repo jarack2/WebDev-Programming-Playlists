@@ -9,7 +9,10 @@ if (isset($_GET["topic"])) {
   $_SESSION["topic"] = $_GET["topic"];
 }
 
-$topic = $_SESSION["topic"];
+$topic = "";
+if (isset($_SESSION["topic"])) {
+  $topic = $_SESSION["topic"];  
+}
 
 $retrieved_video = $conn->get_videos($topic);
 $videos = array();
@@ -32,6 +35,9 @@ foreach ($retrieved_video as $vid) {
 <body>
   <?php require_once "../structure/structure.php"; ?>
   <div class="main">
+    <?php if ($topic == "") {
+      echo "<h2 class=\"playlist-default-message\">Please select a topic on the homepage.</h2>";
+    } else { ?>
     <!-- These will be dynamically generated but for now, they are hardcoded in -->
     <h3 class="selectedplaylist">The Selected Playlist is: <?= $topic ?></h3>
     <div class="videos">
@@ -49,6 +55,7 @@ foreach ($retrieved_video as $vid) {
         </span>
       <?php } ?>
     </div>
+  <?php } ?>
   </div>
 </body>
 <?php require_once "../structure/footer.php"; ?>

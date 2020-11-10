@@ -54,3 +54,8 @@ h3.selectedplaylist {
   margin-left: 16px;
   margin-bottom: 24px;
 }
+
+.playlist-default-message {
+  font-size: 72px;
+  margin-left: 10%;
+}
