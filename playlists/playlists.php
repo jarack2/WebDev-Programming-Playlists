@@ -4,6 +4,11 @@ $selected_page = "playlists";
 session_start();
 $heroku = false;
 $conn = new Connection($heroku); // true if we want to deploy to heroku
+
+if (isset($_GET["topic"])) {
+  $_SESSION["topic"] = $_GET["topic"];
+}
+
 $topic = $_SESSION["topic"];
 
 $retrieved_video = $conn->get_videos($topic);

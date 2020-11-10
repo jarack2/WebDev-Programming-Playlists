@@ -15,14 +15,23 @@ function get_topics($filepath)
 
 <?php function cardrow($arr, $name){ ?> 
 <div class="row">
-    <h3 class="topic"><?= $name ?></h3> <?php foreach ($arr as $arr_name => $arr_path) : ?> <div class="column">
-        <a href="playlists/playlists.php" class="card" onclick="<?php $_SESSION["topic"] = basename($arr_name, ".png")?>">
+    <h3 class="topic"><?= $name ?></h3> 
+    <?php foreach ($arr as $arr_name => $arr_path) : 
+      $topic = basename($arr_name, ".png");
+    ?>
+    <div class="column">
+      <a class="card" data-value="<?= $topic ?>">
+        <form action="playlists/playlists.php" class="card-form-<?= $topic ?>" method="get">
+          <input type="hidden" name="topic" value="<?= $topic ?>" />
           <img src="<?= $arr_path; ?>" alt="<?= $arr_name ?>">
-          <p class="topic-name"><?= basename($arr_name, ".png") ?></p>
-        </a>
-      </div> <?php endforeach ?>
+          <p class="topic-name"><?= $topic ?></p>
+        </form>
+      </a>
+    </div> 
+    <?php endforeach ?>
   </div>
 <?php } ?>
+
 <?php
 
 $languages = get_topics("assets/languages/");
@@ -34,3 +43,9 @@ cardrow($languages, "Languages");
 cardrow($algorithms, "Algorithms");
 cardrow($concepts, "Concepts");
 ?>
+<script>
+  $('.card').click(function() {
+    const topicname = ".card-form-" + $(this).data("value");
+    $(topicname).submit();
+  });
+</script>
