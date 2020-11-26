@@ -2,13 +2,18 @@
 session_start();
 include_once('../database/Connection.php');
 
+
 $_SESSION["error_message"] = null;
 $_SESSION["valid_user"] = true;
-$heroku = true;
+
+$heroku = false;
 
 if (!empty($_POST)) { // creates user if form submitted
+  define("SALT", "salt123321tlassalttlas12321");
   $conn = new Connection($heroku);
-  if ($conn->login($_POST["username"], $_POST["password"])) {
+  $username = $_POST["username"];
+  $password = hash("sha256",$_POST["password"].SALT); // hashing the password with extra salt
+  if ($conn->login($username, $password)) {
     $_SESSION["authenticated"] = true;
     $_SESSION["username"] = $_POST["username"];
     unset($_SESSION["login_form"]);

@@ -7,14 +7,15 @@ unset($_SESSION["password_messages"]);
 unset($_SESSION["exists_messages"]);
 $_SESSION["valid_user"] = true;
 
-$heroku = true;
+$heroku = false;
 
 if (!empty($_POST)) { // creates user if form submitted with valid credentials
+  define("SALT", "salt123321tlassalttlas12321");
   include_once('../database/Connection.php');
   $conn = new Connection($heroku);
   $email = $_POST["email"];
   $username = $_POST["username"];
-  $password = $_POST["password"];
+  $password = hash("sha256",$_POST["password"].SALT); // hashing the password with extra salt
 
   // vaildating email and checking if user exists.
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
