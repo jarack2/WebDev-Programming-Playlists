@@ -54,6 +54,22 @@ class Connection
 
     return true;
   }
+  
+  public function admin_login($name, $pass, $key)
+  {
+    $conn = $this->getConnection();
+    $query_user = $conn->prepare("SELECT Username, Password, EncryptionKey FROM Admins WHERE Username = ? AND Password = ? AND EncryptionKey = ?;");
+    $query_user->bindParam(1, $name, PDO::PARAM_STR);
+    $query_user->bindParam(2, $pass, PDO::PARAM_STR);
+    $query_user->bindParam(3, $key, PDO::PARAM_STR);
+    $query_user->execute();
+
+    if (!$query_user->fetch(PDO::FETCH_ASSOC))
+      return null;
+
+    return true;
+  }
+
 
   // checks to see if the email or username already exists in the db
   public function matching_credential($type, $credential)
@@ -167,7 +183,7 @@ class Connection
   }
 }
 
-$heroku = true;
+$heroku = false;
 $conn = new Connection($heroku); // true if we want to deploy to heroku
 
 // $result = $conn->matching_credential("Username", "jared");

@@ -8,6 +8,13 @@ CREATE TABLE Users (
   Password varchar(255) NOT NULL 
 );
 
+CREATE TABLE Admins ( 
+  ID int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+  Username varchar(64) NOT NULL UNIQUE, 
+  Password varchar(255) NOT NULL UNIQUE, 
+  EncryptionKey varchar(255) NOT NULL 
+);
+
 CREATE TABLE Videos (
   ID int NOT NULL PRIMARY KEY AUTO_INCREMENT, 
   Name varchar(32) NOT NULL UNIQUE,
