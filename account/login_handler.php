@@ -6,7 +6,7 @@ include_once('../database/Connection.php');
 $_SESSION["error_message"] = null;
 $_SESSION["valid_user"] = true;
 
-$heroku = false;
+$heroku = true;
 
 if (!empty($_POST)) { // creates user if form submitted
   define("SALT", "salt123321tlassalttlas12321");

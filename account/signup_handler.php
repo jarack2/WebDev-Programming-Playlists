@@ -7,7 +7,7 @@ unset($_SESSION["password_messages"]);
 unset($_SESSION["exists_messages"]);
 $_SESSION["valid_user"] = true;
 
-$heroku = false;
+$heroku = true;
 
 if (!empty($_POST)) { // creates user if form submitted with valid credentials
   define("SALT", "salt123321tlassalttlas12321");
