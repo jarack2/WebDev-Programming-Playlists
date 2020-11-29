@@ -1,5 +1,5 @@
 $(function() {
   $(".close").click(function() {
-    $(this).parent().fadeOut(1000, () => console.log("complete"))
+    $(this).parent().fadeOut(500, () => console.log("complete"))
   });  
 });
