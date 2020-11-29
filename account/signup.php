@@ -2,7 +2,7 @@
 session_start();
 $selected_page = "signup";
 
-$heroku = true;
+$heroku = false;
 if ($_SESSION["authenticated"]) { // making sure that user cannot get to this page by clicking the back button
   if ($heroku) {
     header("Location:https://programmingplaylists.herokuapp.com/account/logout.php");
@@ -27,6 +27,7 @@ if (isset($_SESSION["signup_form"])) {
   <link rel="stylesheet" type="text/css" href="account.css">
   <link rel="stylesheet" type="text/css" href="../styles.css">
   <title id="home">Signup | Programming Playlists</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -37,7 +38,7 @@ if (isset($_SESSION["signup_form"])) {
       <form action="signup_handler.php" method="post" class="credentials">
         <?php if (isset($_SESSION["exists_messages"])) {
           foreach ($_SESSION["exists_messages"] as $error) { ?>
-            <span class="error"><?= $error ?></span>
+            <span class="error"><?= $error ?><a class="close">X</a></span>
             <br />
         <?php }
         } ?>
@@ -49,7 +50,7 @@ if (isset($_SESSION["signup_form"])) {
           <label for="username">Create a Username</label>
           <input class="input" type="text" name="username" id="username" placeholder="Username" value="<?= $username ?>">
           <?php if (isset($_SESSION["username_message"])) { ?>
-            <span class=" error"><?php echo ($_SESSION["username_message"]); ?></span>
+            <span class=" error"><?php echo ($_SESSION["username_message"]); ?><a class="close">X</a></span>
           <?php } ?>
         </div>
         <div class="password">
@@ -57,7 +58,7 @@ if (isset($_SESSION["signup_form"])) {
           <input class="input" name="password" id="password" type="password" placeholder="Password">
           <?php if (isset($_SESSION["password_messages"])) {
             foreach ($_SESSION["password_messages"] as $error) { ?>
-              <span class="error"><?= $error ?></span>
+              <span class="error"><?= $error ?><a class="close">X</a></span>
               <br />
           <?php }
           } ?>
@@ -69,5 +70,5 @@ if (isset($_SESSION["signup_form"])) {
   </div>
 </body>
 <?php require_once "../structure/footer.php"; ?>
-
+<script src="close.js"></script>
 </html>

@@ -105,3 +105,12 @@ i.fas.fa,
   line-height: 48px;
   text-align: center;
 }
+
+.close {
+  cursor: pointer;
+  margin-left: 24px;
+}
+
+.close:hover {
+  cursor: pointer;
+}
