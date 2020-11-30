@@ -45,10 +45,9 @@ foreach ($retrieved_video as $vid) {
       <i id="favorites" class="fa fa-heart"></i>
       <div class="videos">
         <?php foreach ($videos as $video) { ?>
-          <iframe class="new-vid" src="<?= $video ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="new-vid" data-src="<?= $video ?>" src="<?= $video ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <?php } ?>
       </div>
-
     <?php } ?>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -58,6 +57,7 @@ foreach ($retrieved_video as $vid) {
   <script type="text/javascript" src="playlists.js"></script>
 </body>
 <?php require_once "../structure/footer.php"; ?>
+
 
 
 </html>
