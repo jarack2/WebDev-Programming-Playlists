@@ -12,7 +12,7 @@ if (!empty($_POST)) { // creates user if form submitted
   define("SALT", "salt123321tlassalttlas12321");
   $conn = new Connection($heroku);
   $username = $_POST["username"];
-  $password = hash("sha256",$_POST["password"].SALT); // hashing the password with extra salt
+  $password = hash("sha256", $_POST["password"] . SALT); // hashing the password with extra salt
   if ($conn->login($username, $password)) {
     $_SESSION["authenticated"] = true;
     $_SESSION["username"] = $_POST["username"];

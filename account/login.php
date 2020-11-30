@@ -4,7 +4,7 @@ $selected_page = "login";
 if (!isset($_SESSION["authenticated"])) // if the user is not logged in
   $_SESSION["authenticated"] = false;
 
-$heroku = false;
+$heroku = true;
 if ($_SESSION["authenticated"]) { // making sure that user cannot get to this page by clicking the back button
   if ($heroku) {
     header("Location:https://programmingplaylists.herokuapp.com/account/logout.php");
@@ -36,8 +36,8 @@ if (isset($_SESSION["login_form"])) {
       <h2 class="login">Login:</h2>
       <form action="login_handler.php" class="credentials" method="post">
         <?php if (isset($_SESSION["error_message"])) { ?>
-          <span class="error"> <?php echo ($_SESSION["error_message"]); ?>  <a class="close">X</a> </span>
-         
+          <span class="error"> <?php echo ($_SESSION["error_message"]); ?> <a class="close">X</a> </span>
+
         <?php } ?>
         <div class="username">
           <label for="username"> Enter Your Username: </label>
@@ -51,7 +51,8 @@ if (isset($_SESSION["login_form"])) {
       </form>
     </div>
   </div>
-</body> 
+</body>
 <?php require_once "../structure/footer.php"; ?>
 <script src="close.js"></script>
+
 </html>

@@ -2,7 +2,7 @@
 session_start();
 $selected_page = "signup";
 
-$heroku = false;
+$heroku = true;
 if ($_SESSION["authenticated"]) { // making sure that user cannot get to this page by clicking the back button
   if ($heroku) {
     header("Location:https://programmingplaylists.herokuapp.com/account/logout.php");
@@ -71,4 +71,5 @@ if (isset($_SESSION["signup_form"])) {
 </body>
 <?php require_once "../structure/footer.php"; ?>
 <script src="close.js"></script>
+
 </html>

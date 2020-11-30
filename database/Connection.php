@@ -54,7 +54,7 @@ class Connection
 
     return true;
   }
-  
+
   public function admin_login($name, $pass, $key)
   {
     $conn = $this->getConnection();

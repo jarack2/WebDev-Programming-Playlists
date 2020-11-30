@@ -9,7 +9,7 @@ if (!empty($_POST)) {
 
   require_once("../database/Connection.php");
   $conn = new Connection($heroku);
-  
+
   if ($conn->admin_login($admin_login, $admin_password, $admin_encryption_key)) { // admin logins are inserted directly into the database.
     $_SESSION["admin_authenticated"] = true;
   }
