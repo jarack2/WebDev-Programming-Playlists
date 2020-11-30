@@ -2,7 +2,7 @@
 require_once "../database/Connection.php";
 $selected_page = "playlists";
 session_start();
-$heroku = true;
+$heroku = false;
 $conn = new Connection($heroku); // true if we want to deploy to heroku
 
 if (isset($_GET["topic"])) {
@@ -38,19 +38,15 @@ foreach ($retrieved_video as $vid) {
 <body>
   <?php require_once "../structure/structure.php"; ?>
   <div class="main">
-    <!-- The Gallery as inline carousel, can be positioned anywhere on the page -->
-
     <?php if ($topic == "") {
       echo "<h2 class=\"playlist-default-message\">Please select a topic on the homepage.</h2>";
     } else { ?>
-      <!-- These will be dynamically generated but for now, they are hardcoded in -->
       <h3 class="selectedplaylist">The Selected Playlist is: <?= $topic ?></h3>
-      <div>
-        <div class="videos">
-          <?php foreach ($videos as $video) { ?>
-            <iframe class="new-vid" src="<?= $video ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <?php } ?>
-        </div>
+      <i id="favorites" class="fa fa-heart"></i>
+      <div class="videos">
+        <?php foreach ($videos as $video) { ?>
+          <iframe class="new-vid" src="<?= $video ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <?php } ?>
       </div>
 
     <?php } ?>
@@ -59,14 +55,7 @@ foreach ($retrieved_video as $vid) {
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="../slick/slick/slick.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('.videos').slick({
-
-        slidesToShow: 1,
-      });
-    });
-  </script>
+  <script type="text/javascript" src="playlists.js"></script>
 </body>
 <?php require_once "../structure/footer.php"; ?>
 
