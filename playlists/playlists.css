@@ -6,11 +6,24 @@
   overflow: initial;
 }
 
-iframe.videos {
-  margin-left: 24px;
-  margin-bottom: 16px;
-  width: 380px;
-  height: 225px;
+.videos {
+  width: 75%;
+  display: flex;
+  margin: auto;
+}
+
+.new-vid {
+  height: 550px;
+}
+
+.slick-prev {
+  left: 5px;
+  z-index: 10;
+}
+
+.slick-next {
+  right: 5px;
+  z-index: 10;
 }
 
 /* @media screen and (min-width: 1450px) {
