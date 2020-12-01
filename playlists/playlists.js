@@ -13,7 +13,8 @@ $(document).ready(function() {
       url:"favorite_handler.php",
       data: {favorite: favorite},
       success: function(data){
-        alert(data);
+        alert("The video was successfully added to favorites!");
+        // $('#favorites')
       }
     })
   })
