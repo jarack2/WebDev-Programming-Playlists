@@ -49,7 +49,7 @@ foreach ($retrieved_video as $vid) {
 
 <body>
   <?php require_once "../structure/structure.php"; ?>
-  <div class="main">
+  <div class="main" style="overflow:visible">
     <?php if ($topic == "" && !($authenticated)) {
       echo "<h2 class=\"playlist-default-message\">Please select a topic on the homepage.</h2>";
     } else { ?>
