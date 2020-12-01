@@ -1,4 +1,5 @@
 <?php
+
 require_once "../database/Connection.php";
 $selected_page = "playlists";
 session_start();
@@ -14,12 +15,22 @@ if (isset($_SESSION["topic"])) {
   $topic = $_SESSION["topic"];
 }
 
-$retrieved_video = $conn->get_videos($topic);
+$authenticated = false;
+if (isset($_SESSION["authenticated"])) {
+  $authenticated = $_SESSION["authenticated"];
+}
+
+if ($topic == "" && $authenticated) {
+  $retrieved_video = $conn->get_favorites($_SESSION["username"]);
+} else {
+  $retrieved_video = $conn->get_videos($topic);
+}
+
 $videos = array();
 
 foreach ($retrieved_video as $vid) {
   if (strstr($vid["Link"], "embed")) continue; // if the youtube url is correct and doesnt need to be modified
-  $videos[$vid["Name"]] = str_replace("watch?v=", "embed/", htmlspecialchars($vid["Link"])); // changing the youtube url and adding it to the video array
+  $videos[$vid["Name"]] = str_replace("watch?v=", "embed/", $vid["Link"]); // changing the youtube url and adding it to the video array
 }
 ?>
 
@@ -38,7 +49,7 @@ foreach ($retrieved_video as $vid) {
 <body>
   <?php require_once "../structure/structure.php"; ?>
   <div class="main">
-    <?php if ($topic == "") {
+    <?php if ($topic == "" && !($authenticated)) {
       echo "<h2 class=\"playlist-default-message\">Please select a topic on the homepage.</h2>";
     } else { ?>
       <h3 class="selectedplaylist">The Selected Playlist is: <?= $topic ?></h3>

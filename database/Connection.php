@@ -145,18 +145,17 @@ class Connection
   // adds a fovorite to the database
   public function add_favorites($user, $video)
   {
+    $video = str_replace("embed/", "watch?v=", $video);
     $conn = $this->getConnection();
 
     $userID = $conn->prepare("SELECT ID from Users where Username = :user;");
     $userID->bindParam(":user", $user, PDO::PARAM_STR);
     $userID->execute();
     $user_id = $userID->fetch(PDO::FETCH_ASSOC)["ID"];
-
-    $videoID = $conn->prepare("SELECT ID from Videos where Name = :vidname;");
-    $videoID->bindParam(":vidname", $video, PDO::PARAM_STR);
+    $videoID = $conn->prepare("SELECT ID from Videos where Link = :vidlink;");
+    $videoID->bindParam(":vidlink", $video, PDO::PARAM_STR);
     $videoID->execute();
     $video_id = $videoID->fetch(PDO::FETCH_ASSOC)["ID"];
-
     $favorite = $conn->prepare("INSERT INTO Favorites (UserID, VideoID) VALUES (:userid, :videoid);");
     $favorite->bindParam(":userid", $user_id, PDO::PARAM_INT);
     $favorite->bindParam(":videoid", $video_id, PDO::PARAM_INT);
@@ -193,5 +192,5 @@ $conn = new Connection($heroku); // true if we want to deploy to heroku
 // } else {
 //   echo "there was not a matching result.";
 // }
-// $conn->add_favorites("jared1", "test");
-// echo print_r($conn->get_favorites('jared1'));
+// $conn->add_favorites("jared321", "test");
+// echo print_r($conn->get_favorites('jared321'));
