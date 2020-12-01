@@ -21,6 +21,7 @@ if (isset($_SESSION["authenticated"])) {
 }
 
 if ($topic == "" && $authenticated) {
+  $topic = "Favorites";
   $retrieved_video = $conn->get_favorites($_SESSION["username"]);
 } else {
   $retrieved_video = $conn->get_videos($topic);
