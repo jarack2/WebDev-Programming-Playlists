@@ -18,6 +18,11 @@
   z-index: 10;
 }
 
+.slick-prev:before,
+.slick-next:before {
+  color: cornflowerblue;
+}
+
 /* @media screen and (min-width: 1450px) {
   iframe.videos {
     width: 30%;
