@@ -1,6 +1,5 @@
 <?php
 require("sendgrid-php/sendgrid-php.php");
-require("sendgrid_config.php");
 session_start();
 $heroku = true;
 $name = "Anonymous";
